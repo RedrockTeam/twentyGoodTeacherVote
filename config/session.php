@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'path' => '/twentyGoodTeacherVote',
+    'path' => '/twentyGoodTeacherVote/public',
 
     /*
     |--------------------------------------------------------------------------
@@ -135,7 +135,7 @@ return [
     |
     */
 
-    'domain' => null,
+    'domain' => 'redrock.cqupt.edu.cn',
 
     /*
     |--------------------------------------------------------------------------
