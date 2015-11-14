@@ -1,2 +1,2 @@
 <?php
-header('http://redrock.cqupt.edu.cn/twentyGoodTeacherVote/public/');
+header('Location: http://redrock.cqupt.edu.cn/twentyGoodTeacherVote/public/');
