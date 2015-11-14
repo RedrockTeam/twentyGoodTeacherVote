@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'path' => '/twentyGoodTeacherVote/public',
+    'path' => '/twentyGoodTeacherVote',
 
     /*
     |--------------------------------------------------------------------------
