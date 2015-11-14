@@ -12,8 +12,8 @@
 */
 
 
-//Route::group(['prefix' => ''], function() {
-    Route::get('/', function () {
-        return view('index');
-    });
-//});
+Route::group(['prefix' => ''], function() {
+    Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
+    Route::get('norm', ['as' => 'norm', 'uses' => 'IndexController@norm']);
+    Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']);
+});
