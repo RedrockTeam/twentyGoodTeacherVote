@@ -11,6 +11,7 @@
     </style>
 </head>
 <body>
+
     <div class="bk">
         <div class="nav">
             <div class="nav_contain">
@@ -69,20 +70,27 @@
                     </ul>
                 </div>
                 <div class="log shadow">
-                    <h3 class="log_title">重邮通行证</h3>
+                    @if(!Auth::check())
+                        <h3 class="log_title">重邮通行证</h3>
+                        @if(!$errors->login->isEmpty())
 
-                    <form action="{{route('login')}}" method="POST" id="log_form">
-                        <label>
-                            <input id="user" class="log_info" type="text" value="用户名" name="user" placeholder="用户名"/>
-                        </label>
-                        <label>
-                            <input id="password" class="log_info" type="password" placeholder="密   码" name="password"/>
-                        </label>
-                        {{--csrf--}}
-                        {{csrf_field()}}
-                        <input class="log_sub" type="submit" value="登录"/>
-                    </form>
-                    <a class="log_forget" href="#">忘记密码</a>
+                            {{$errors->login->all()[0]}}
+                        @endif
+                        <form action="{{route('login')}}" method="POST" id="log_form">
+                            <label>
+                                <input id="user" class="log_info" type="text" value="{{old('user')}}" name="user" placeholder="用户名"/>
+                            </label>
+                            <label>
+                                <input id="password" class="log_info" type="password" placeholder="密   码" name="password"/>
+                            </label>
+                            {{--csrf--}}
+                            {{csrf_field()}}
+                            <input class="log_sub" type="submit" value="登录"/>
+                        </form>
+                        <a class="log_forget" href="#">忘记密码</a>
+                    @else
+                      lalala
+                    @endif
                 </div>
             </div>
             <a class="bu_nav_link" href="{{route('norm')}}">
