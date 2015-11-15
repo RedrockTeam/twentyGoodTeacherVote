@@ -139,7 +139,7 @@
                     <a class="log_forget" href="#">忘记密码</a>
                 </div>
             </div>
-            <a class="bu_nav_link" href="#">
+            <a class="bu_nav_link" href="{{route('norm')}}">
                 <button class="bu_nav shadow"><img src="{{asset('img/write.png')}}" alt="write"/>我来提名</button>
             </a>
             <a class="bu_nav_link" href="#">
