@@ -42,8 +42,14 @@
 
         <div class="norm shadow">
             <h3 class="norm_h">我来提名</h3>
+            @if(!Auth::check())
+                请先登录后提名
+            @endif
+            @if(!$errors->info->isEmpty())
+                {{$errors->info->all()[0]}}
+            @endif
             <div class="container">
-                <form id="norm_form" action="#" method="GET">
+                <form id="norm_form" action="{{route('nominate')}}" method="post">
                     <h5 class="norm_title">被提名人信息</h5>
                     <div class="norm_team">
                         <label for="norm_name">姓<span class="lab_ju">名</span></label>
@@ -66,6 +72,7 @@
                         <label for="part">所在单位</label>
                         <input id="part" name="part" type="text" value="提名人所在单位（班级或学院）"/>
                     </div>
+                    {{csrf_field()}}
                     <input class="norm_sub" type="submit" value="提交"/>
                 </form>
             </div>
