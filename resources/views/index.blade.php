@@ -42,84 +42,30 @@
             <div class="container">
                 <div class="news shadow">
                     <div class="news_title">
-                        <a href="#">更多 ></a>
+                        <a href="#">更多 >></a>
                         <img src="{{asset('img/info.png')}}" alt="information"/>
                         <h3 class="news_h">最新公告</h3>
 
                     </div>
                     <ul class="news_list">
-                        <li class="news_li">
-                            <span class="news_tip">
-                                <img src="{{asset('img/new.png')}}" alt="new"/>
-
-                            </span>
-                            <a href="#">《投票结果》《投票结果》《投票结果》《投票结果》</a>
-                            <span class="news_time">2015-11-11</span>
-                        </li>
-                        <li class="news_li news_li_even">
-                            <span class="news_tip">
-                                <img src="{{asset('img/new.png')}}" alt="new"/>
-
-                            </span>
-                            <a href="#">《投票结果》《投票结果》《投票结果》《投票结果》</a>
-                            <span class="news_time">2015-11-11</span>
-                        </li>
-                        <li class="news_li">
-                            <span class="news_tip">
-                                <img src="{{asset('img/new.png')}}" alt="new"/>
-
-                            </span>
-                            <a href="#">《投票结果》《投票结果》《投票结果》《投票结果》</a>
-                            <span class="news_time">2015-11-11</span>
-                        </li>
-                        <li class="news_li news_li_even">
-                            <span class="news_tip">
-                                <img src="{{asset('img/new.png')}}" alt="new"/>
-
-                            </span>
-                            <a href="#">《投票结果》《投票结果》《投票结果》《投票结果》</a>
-                            <span class="news_time">2015-11-11</span>
-                        </li>
-                        <li class="news_li">
-                            <span class="news_tip">
-                                <img src="{{asset('img/new.png')}}" alt="new"/>
-
-                            </span>
-                            <a href="#">《投票结果》《投票结果》《投票结果》《投票结果》</a>
-                            <span class="news_time">2015-11-11</span>
-                        </li>
-                        <li class="news_li news_li_even">
-                            <span class="news_tip">
-
-
-                            </span>
-                            <a href="#">《投票结果》《投票结果》《投票结果》《投票结果》</a>
-                            <span class="news_time">2015-11-11</span>
-                        </li>
-                        <li class="news_li">
-                            <span class="news_tip">
-
-
-                            </span>
-                            <a href="#">《投票结果》《投票结果》《投票结果》《投票结果》</a>
-                            <span class="news_time">2015-11-11</span>
-                        </li>
-                        <li class="news_li news_li_even">
-                            <span class="news_tip">
-
-
-                            </span>
-                            <a href="#">《投票结果》《投票结果》《投票结果》《投票结果》</a>
-                            <span class="news_time">2015-11-11</span>
-                        </li>
-                        <li class="news_li">
-                            <span class="news_tip">
-
-
-                            </span>
-                            <a href="#">《投票结果》《投票结果》《投票结果》《投票结果》</a>
-                            <span class="news_time">2015-11-11</span>
-                        </li>
+                        @forelse($ad as $key => $value)
+                            <li class="news_li {{$key%2 ? '' : 'news_li_even'}}">
+                                <span class="news_tip">
+                                    @if($key < 3)
+                                    <img src="{{asset('img/new.png')}}" alt="new"/>
+                                    @endif
+                                </span>
+                                <a href="#">{{$value->title}}</a>
+                                <span class="news_time">{{$value->updated_at->format('Y-m-d')}}</span>
+                            </li>
+                            @empty
+                            <li class="news_li">
+                                <span class="news_tip">
+                                </span>
+                                <a href="#">暂无公告</a>
+                                <span class="news_time"></span>
+                            </li>
+                        @endforelse
                     </ul>
                 </div>
                 <div class="log shadow">

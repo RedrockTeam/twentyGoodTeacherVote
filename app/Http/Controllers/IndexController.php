@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Ad;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -13,7 +14,9 @@ class IndexController extends Controller {
     private $verify_url = 'http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login';
 
     public function index() {
-        return view('index');
+        $ad = Ad::all();
+        $test = 'dsaf';
+        return view('index')->with('ad', $ad)->with('test', $test);
     }
 
     public function norm() {
@@ -27,7 +30,7 @@ class IndexController extends Controller {
     }
 
     /**
-     * 通过post方式获取数据, 支持https, 未测试233
+     * 通过post方式获取数据, 未测试233
      * @param string $url
      * @param array $data
      * @return array|mixed
