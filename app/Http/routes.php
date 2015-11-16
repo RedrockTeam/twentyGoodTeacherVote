@@ -22,3 +22,7 @@ Route::group(['prefix' => ''], function() {
     Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']);
     Route::post('nominate', ['as' => 'nominate', 'uses' => 'NominateController@candidate']);
 });
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('index', ['as' => 'admin/index', 'uses' => 'AdminController@index']);
+});
