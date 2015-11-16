@@ -28,6 +28,16 @@ class IndexController extends Controller {
         return view('norm');
     }
 
+    //
+    public function detail() {
+        return view('detail');
+    }
+
+    //
+    public function vote() {
+        return view('vote');
+    }
+
     //登录
     public function login() {
         $data = Input::all();
