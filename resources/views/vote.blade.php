@@ -24,7 +24,7 @@
             <p class="vote_rule_p">2.投票时间：2015年11月23日00时00分01秒—2015年11月27日23时59分59秒。</p>
             <p class="vote_rule_p">3.点击“ <span class="heart">&#xe708;</span> ”可选择候选人进行投票。</p>
         </div>
-        <div id="nor" class="vote_container">
+        <div id="nor" class="vote_container vote_container_hide">
             <ul class="vote_peo_list">
                 <li class="vote_peo_li">
                     <div class="vote_people">
@@ -92,11 +92,11 @@
                         <p class="vote_part">传媒艺术学院</p>
                     </div>
                 </li>
-
+                <button class="vote_sub vote_subed">已投票</button>
             </ul>
 
         </div>
-        <div id="yth" class="vote_container">
+        <div id="yth" class="vote_container vote_container_hide">
             <ul class="vote_peo_list">
                 <li class="vote_peo_li">
                     <div class="vote_people">
@@ -157,7 +157,7 @@
                 </li>
 
             </ul>
-
+            <button class="vote_sub">投票</button>
         </div>
     </div>
 @stop
