@@ -43,7 +43,6 @@
             <div class="container">
                 <div class="news shadow">
                     <div class="news_title">
-                        <a href="#">更多 >></a>
                         <img src="{{asset('img/info.png')}}" alt="information"/>
                         <h3 class="news_h">最新公告</h3>
 
@@ -72,22 +71,35 @@
                 <div class="log shadow">
                     @if(!Auth::check())
                         <h3 class="log_title">重邮通行证</h3>
-                        @if(!$errors->login->isEmpty())
+                        <!--登录前-->
+                        <div class="log_be">
+	                        @if(!$errors->login->isEmpty())
 
-                            {{$errors->login->all()[0]}}
-                        @endif
-                        <form action="{{route('login')}}" method="POST" id="log_form">
-                            <label>
-                                <input id="user" class="log_info" type="text" value="{{old('user')}}" name="user" placeholder="用户名"/>
-                            </label>
-                            <label>
-                                <input id="password" class="log_info" type="password" placeholder="密   码" name="password"/>
-                            </label>
-                            {{--csrf--}}
-                            {{csrf_field()}}
-                            <input class="log_sub" type="submit" value="登录"/>
-                        </form>
-                        <a class="log_forget" href="#">忘记密码</a>
+	                            {{$errors->login->all()[0]}}
+	                        @endif
+	                        <form action="{{route('login')}}" method="POST" id="log_form">
+	                        	<!-- 报错 -->
+	                        	<span class="log_err"></span>
+	                            <label>
+	                                <input id="user" class="log_info" type="text" value="{{old('user')}}" name="user" placeholder="用户名"/>
+	                            </label>
+	                            <label>
+	                                <input id="password" class="log_info" type="password" placeholder="密   码" name="password"/>
+	                            </label>
+	                            {{--csrf--}}
+	                            {{csrf_field()}}
+	                            <input class="log_sub" type="submit" value="登录"/>
+	                        </form>
+	                        <a class="log_teacher" href="#">教师注册入口</a>
+	                        <a class="log_forget" href="#">忘记密码</a>
+	                    </div>  
+	                    <!--登陆后-->
+	                    <div class="log_aft">
+	                        <div class="log_suc">
+	                            <img src="img/login.png" alt="success"/>
+	                        </div>
+	                        <a class="log_out" href="#">退出登录</a>
+	                    </div>  
                     @else
                       lalala
                     @endif
