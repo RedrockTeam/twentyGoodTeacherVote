@@ -30,4 +30,6 @@ Route::group(['prefix' => ''], function() {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('index', ['as' => 'admin/index', 'uses' => 'AdminController@index']);
+    Route::post('edit', ['as' => 'admin/edit', 'uses' => 'AdminController@edit']);
+    Route::post('updatestatus', ['as' => 'admin/updatestatus', 'uses' => 'AdminController@operationCandidate']);
 });
