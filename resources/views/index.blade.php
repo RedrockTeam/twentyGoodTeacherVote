@@ -10,15 +10,6 @@
 
 @section('content')
         <div class="content">
-                <h1 class="title_1">第二届</h1>
-                <img class="title_mor" src="{{asset('img/moral.png')}}" alt="moral"/>
-                <img class="title_yth" src="{{asset('img/youngth.png')}}" alt="youngth"/>
-                <h3 class="title_2">评选表彰活动专题网</h3>
-                <h3 class="title_3">
-                    <span>塑高尚师德模范</span>
-                    <span>做敬业爱生教师</span>
-                </h3>
-
             <div class="container">
                 <div class="news shadow">
                     <div class="news_title">
@@ -34,7 +25,7 @@
                                     <img src="{{asset('img/new.png')}}" alt="new"/>
                                     @endif
                                 </span>
-                                <a href="#">{{$value->title}}</a>
+                                <a href="{{route('ad.show', $value->id)}}" target="_blank">{{$value->title}}</a>
                                 <span class="news_time">{{$value->updated_at->format('Y-m-d')}}</span>
                             </li>
                             @empty
@@ -69,18 +60,17 @@
 	                            {{csrf_field()}}
 	                            <input class="log_sub" type="submit" value="登录"/>
 	                        </form>
-	                        <a class="log_teacher" href="#">教师注册入口</a>
-	                        <a class="log_forget" href="#">忘记密码</a>
-	                    </div>  
-	                    <!--登陆后-->
-	                    <div class="log_aft">
-	                        <div class="log_suc">
-	                            <img src="img/login.png" alt="success"/>
-	                        </div>
-	                        <a class="log_out" href="#">退出登录</a>
-	                    </div>  
+	                        <a class="log_teacher" target="_blank" href="http://redrock.cqupt.edu.cn/RedCenter/index.php/Home/TeacherRegister/index.html">教师注册入口</a>
+	                        <a class="log_forget" href="javascript:alert('请联系红岩网校工作站~')">忘记密码</a>
+	                    </div>
                     @else
-                      lalala
+                            <!--登陆后-->
+                        <div class="log_aft">
+                            <div class="log_suc">
+                                <img src="img/login.png" alt="success"/>
+                            </div>
+                            <a class="log_out" href="{{route('logout')}}">退出登录</a>
+                        </div>
                     @endif
                 </div>
             </div>
