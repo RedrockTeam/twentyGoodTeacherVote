@@ -46,7 +46,12 @@
                     <input class="norm_sub" type="submit" value="提交"/>
                 </form>
             </div>
-
+            <!-- 提交成功 -->
+            <div class="norm_suc">
+                <h3 class="norm_h norm_suc_h">提交成功！</h3>
+                <p class="norm_suc_p">您的提名已成功提交</p>
+                <button class="norm_sub norm_suc_sub">确定</button>
+            </div>    
         </div>
 
  @stop
