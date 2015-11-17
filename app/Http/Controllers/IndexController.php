@@ -28,6 +28,21 @@ class IndexController extends Controller {
         return view('norm');
     }
 
+    //
+    public function detail() {
+        return view('detail');
+    }
+
+    //
+    public function vote() {
+        return view('vote');
+    }
+
+    //
+    public function talk() {
+        return view('talk');
+    }
+
     //登录
     public function login() {
         $data = Input::all();
@@ -45,6 +60,10 @@ class IndexController extends Controller {
             return 'error';
     }
 
+    public function logout() {
+        Auth::logout();
+        return redirect(route('index'));
+    }
     /**
      * 通过post方式获取数据, 未测试233
      * @param string $url
