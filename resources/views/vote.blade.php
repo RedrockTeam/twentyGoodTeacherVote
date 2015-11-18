@@ -22,7 +22,7 @@
             <h3 class="vote_rule_title">投票规则</h3>
             <p class="vote_rule_p">1.每个账号账号每天可在网站或“重邮小帮手”微信公众号上分别为十佳师德标兵和十佳青年教师各投一次票，每次投票投给7-10位候选人，该次投票才有效，否则投票无效。</p>
             <p class="vote_rule_p">2.投票时间：2015年11月23日00时00分01秒—2015年11月27日23时59分59秒。</p>
-            <p class="vote_rule_p">3.点击“ <span class="heart">&#xe6a8;</span> ”可选择候选人进行投票。</p>
+            <p class="vote_rule_p">3.点击“ <span class="heart">&#xe651;</span> ”可选择候选人进行投票。</p>
         </div>
         <div id="nor" class="vote_container vote_container_hide">
             <!--voted已投票-->
