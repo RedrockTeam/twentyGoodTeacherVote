@@ -49,13 +49,11 @@ class AdminController extends Controller
 
     public function addCandidate(Request $request) {
         $data = Input::all();
-
         if (!$request->hasFile('photo')) {
             return redirect()->back()->withErrors('info', '图片不存在');
         }
         $photo = $request->file('photo');
         $filename = time().'.jpg';
-//        return public_pathath('upload');
         $photo->move(public_path('upload'), $filename);
         $data['avatar'] = $filename;
         Candidate::create($data);
