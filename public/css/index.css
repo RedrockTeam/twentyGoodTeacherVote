@@ -239,7 +239,11 @@ body {
 }
 #log_form {
   width: 220px;
-  margin: 31px auto 0 auto;
+  margin: 19px auto 0 auto;
+}
+#log_form label {
+  color: #FA676D;
+  font-size: 12px;
 }
 #log_form input {
   height: 36px;
@@ -247,11 +251,12 @@ body {
   font-family: "Microsoft YaHei", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 16px;
   color: #999999;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 #log_form .log_sub {
   width: 100%;
   background-color: #ff414e;
+  margin: 12px 0 20px 0;
   padding: 0;
   border: 0;
   -webkit-box-shadow: 0 0 0 1px #dddddd;
