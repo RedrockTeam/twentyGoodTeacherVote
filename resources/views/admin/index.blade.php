@@ -57,7 +57,62 @@
     <script>
         $(".btn-warning").on('click', function() {
             var id = $(this).data('id');
-            console.log(id);
+            var input_dom = $(this).parents('.row').find('input');
+            var value = {};
+            $.each(input_dom, function(k, v) {
+                value[$(v).attr('name')] = $(v).val();
+            });
+            $.ajax({
+                type: "post",
+                url: "{{route('admin/edit')}}",
+                data: {'data':value, 'id':id, _token:"{{csrf_token()}}"},
+                dataType: "json",
+                success: function(data) {
+                    if(data.status == 200) {
+                        alert('修改成功');
+                    } else {
+                        alert(data.info)
+                    }
+                }
+            });
+        });
+        $(".btn-success").on('click', function() {
+            var id = $(this).data('id');
+            var lable = $(this).parents('.row').find('span').eq(0);
+            $.ajax({
+                type: "post",
+                url: "{{route('admin/updatestatus')}}",
+                data: {'data':{'status':1}, 'id':id, _token:"{{csrf_token()}}"},
+                dataType: "json",
+                success: function(data) {
+                    if(data.status == 200) {
+                        lable.removeClass().addClass('label label-success');
+                        lable.html('正常');
+                        alert('修改成功');
+                    } else {
+                        alert(data.info)
+                    }
+                }
+            });
+        });
+        $(".btn-danger").on('click', function() {
+            var id = $(this).data('id');
+            var lable = $(this).parents('.row').find('span').eq(0);
+            $.ajax({
+                type: "post",
+                url: "{{route('admin/updatestatus')}}",
+                data: {'data':{'status':0}, 'id':id, _token:"{{csrf_token()}}"},
+                dataType: "json",
+                success: function(data) {
+                    if(data.status == 200) {
+                        lable.removeClass().addClass('label label-danger');
+                        lable.html('冻结');
+                        alert('修改成功');
+                    } else {
+                        alert(data.info)
+                    }
+                }
+            });
         });
     </script>
 </body>
