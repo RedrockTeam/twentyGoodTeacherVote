@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Routing\Controller;
 use App\Model\Candidate;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 
@@ -45,14 +43,20 @@ class AdminController extends Controller
         return ['status' => 200, 'info' => '成功'];
     }
 
-    public function addCandidate() {
+    public function add() {
+        return view('admin.add');
+    }
+
+    public function addCandidate(Request $request) {
         $data = Input::all();
-        $photo = Request::file('file');
-        if (!$photo->isValid()) {
+
+        if (!$request->hasFile('photo')) {
             return redirect()->back()->withErrors('info', '图片不存在');
         }
-        $filename = time().'jpg';
-        $photo->move(public_path(), $filename);
+        $photo = $request->file('photo');
+        $filename = time().'.jpg';
+//        return public_pathath('upload');
+        $photo->move(public_path('upload'), $filename);
         $data['avatar'] = $filename;
         Candidate::create($data);
         return redirect()->back()->withErrors('info', '成功');
