@@ -9,13 +9,13 @@
 @section('content')
         <div class="norm shadow">
             <h3 class="norm_h">我来提名</h3>
-            @if(!Auth::check())
-                请先登录后提名
-            @endif
-            @if(!$errors->info->isEmpty())
-                {{$errors->info->all()[0]}}
-            @endif
             <div class="container">
+            	<!--错误-->
+                <span class="norm_err">
+                	@if(!Auth::check())
+                		请先登录后提名
+            		@endif
+                </span>
                 <form id="norm_form" action="{{route('nominate')}}" method="post">
                     <h5 class="norm_title">被提名人信息</h5>
                     <div class="norm_team">
@@ -43,7 +43,15 @@
                     <input class="norm_sub" type="submit" value="提交"/>
                 </form>
             </div>
-
+            @if(!$errors->info->isEmpty())
+            <!-- 提交成功 -->
+            <div class="norm_suc">
+                <h3 class="norm_h norm_suc_h">提交信息</h3>
+                <p class="norm_suc_p">{{$errors->info->all()[0]}}
+                </p>
+                <button class="norm_sub norm_suc_sub">确定</button>
+            </div>
+            @endif
         </div>
 
  @stop
