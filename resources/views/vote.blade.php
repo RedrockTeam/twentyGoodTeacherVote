@@ -14,9 +14,9 @@
     <div class="vote">
 
         <ul class="vote_nav">
-            <a href="{{route('vote', '#rule')}}"><li class="vote_nav_li">投票规则</li></a>
-            <a href="{{route('vote', '#nor')}}"><li class="vote_nav_li">十佳师德标兵</li></a>
-            <a href="{{route('vote', '#yth')}}"><li class="vote_nav_li">十佳青年教师</li></a>
+            <a href="#rule"><li class="vote_nav_li vote_nav_li_sel">投票规则</li></a>
+            <a href="#nor"><li class="vote_nav_li">十佳师德标兵</li></a>
+            <a href="#yth"><li class="vote_nav_li">十佳青年教师</li></a>
         </ul>
         <div id="rule" class="vote_container">
             <h3 class="vote_rule_title">投票规则</h3>
@@ -176,4 +176,9 @@
             </form>
         </div>
     </div>
+@stop
+
+@section('js')
+@parent
+<script src="{{asset('js/vote-min.js')}}"></script>
 @stop

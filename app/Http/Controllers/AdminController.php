@@ -45,4 +45,17 @@ class AdminController extends Controller
         return ['status' => 200, 'info' => '成功'];
     }
 
+    public function addCandidate() {
+        $data = Input::all();
+        $photo = Request::file('file');
+        if (!$photo->isValid()) {
+            return redirect()->back()->withErrors('info', '图片不存在');
+        }
+        $filename = time().'jpg';
+        $photo->move(public_path(), $filename);
+        $data['avatar'] = $filename;
+        Candidate::create($data);
+        return redirect()->back()->withErrors('info', '成功');
+    }
+
 }
