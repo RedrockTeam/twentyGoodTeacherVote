@@ -16,15 +16,18 @@ Route::group(['prefix' => ''], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']); //首页
     Route::get('norm', ['as' => 'norm', 'uses' => 'IndexController@norm']); //提名页面
     Route::get('detail', ['as' => 'detail', 'uses' => 'IndexController@detail']); //候选人详情
-    Route::get('vote', ['as' => 'vote', 'uses' => 'IndexController@vote']); //投票
+    Route::get('votePage', ['as' => 'vote', 'uses' => 'IndexController@vote']); //投票
     Route::get('talk', ['as' => 'talk', 'uses' => 'IndexController@talk']); //投票
     Route::get('logout', ['as' => 'logout', 'uses' => 'IndexController@logout']); //登出
 
     Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']); //登录
     Route::post('nominate', ['as' => 'nominate', 'uses' => 'NominateController@candidate']); //提名方法
+    Route::post('vote', ['as' => 'voteMethod', 'uses' => 'VoteController@update']);
+
 
     //RESTful test
-    Route::resource('ad', 'AdController', ['only' => ['index', 'show', 'create', 'destroy']]);
+    Route::resource('ad', 'AdController', ['only' => ['index', 'show', 'create', 'destroy', 'update']]);
+
 
 });
 

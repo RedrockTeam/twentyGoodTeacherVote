@@ -33,9 +33,23 @@ class IndexController extends Controller {
         return view('detail');
     }
 
-    //
+    //投票页面
     public function vote() {
-        return view('vote');
+        if(!Auth::check()) {
+            return view('vote');
+        }
+        $user = Auth::user();
+        $morality = UserVote::where('user_id', $user->id)
+                            ->where('type', '1')
+                            ->where('created_at', date('Y-m-d', time()))
+                            ->where('candidate_type', '1')//todo
+                            ->select();
+        $youngth = UserVote::where('user_id', $user->id)
+                            ->where('type', '1')
+                            ->where('created_at', date('Y-m-d', time()))
+                            ->where('candidate_type', '2')//todo
+                            ->select();
+        return view('vote')->with('morality', $morality)->with('youngth', $youngth);
     }
 
     //
