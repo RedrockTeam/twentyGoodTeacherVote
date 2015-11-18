@@ -40,16 +40,16 @@ class IndexController extends Controller {
             return view('vote');
         }
         $user = Auth::user();
-        $morality = UserVote::where('user_id', $user->id)
-                            ->where('type', '1')
-                            ->where('created_at', date('Y-m-d', time()))
-                            ->where('candidate_type', '1')//todo
-                            ->select();
+        $morality = UserVote::where('user_id', '=', $user->id)
+                            ->where('type', '=', '1')
+                            ->where('created_at', '=', date('Y-m-d', time()))
+                            ->where('candidate_type', '=', '1')
+                            ->get();
         $youngth = UserVote::where('user_id', $user->id)
                             ->where('type', '1')
                             ->where('created_at', date('Y-m-d', time()))
-                            ->where('candidate_type', '2')//todo
-                            ->select();
+                            ->where('candidate_type', '2')
+                            ->get();
         return view('vote')->with('morality', $morality)->with('youngth', $youngth);
     }
 
