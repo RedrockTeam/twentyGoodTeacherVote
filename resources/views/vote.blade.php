@@ -14,12 +14,12 @@
     <div class="vote">
 
         <ul class="vote_nav">
-            <a href="{{route('vote', '#rule')}}"><li class="vote_nav_li">投票规则</li></a>
-            <a href="{{route('vote', '#nor')}}"><li class="vote_nav_li">十佳师德标兵</li></a>
-            <a href="{{route('vote', '#yth')}}"><li class="vote_nav_li">十佳青年教师</li></a>
+            <a href="#rule"><li class="vote_nav_li">投票规则</li></a>
+            <a href="#nor"><li class="vote_nav_li">十佳师德标兵</li></a>
+            <a href="#yth"><li class="vote_nav_li">十佳青年教师</li></a>
         </ul>
         <div id="rule" class="vote_container">
-            <h3 class="vote_rule_title">投票规则{{time()}}</h3>
+            <h3 class="vote_rule_title">投票规则</h3>
             <p class="vote_rule_p">1.每个账号账号每天可在网站或“重邮小帮手”微信公众号上分别为十佳师德标兵和十佳青年教师各投一次票，每次投票投给7-10位候选人，该次投票才有效，否则投票无效。</p>
             <p class="vote_rule_p">2.投票时间：2015年11月23日00时00分01秒—2015年11月27日23时59分59秒。</p>
             <p class="vote_rule_p">3.点击“ <span class="heart">&#xe6a8;</span> ”可选择候选人进行投票。</p>
@@ -176,4 +176,9 @@
             </form>
         </div>
     </div>
+@stop
+
+@section('js')
+@parent
+<script src="{{asset('js/vote-min.js')}}"></script>
 @stop
