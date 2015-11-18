@@ -35,8 +35,8 @@
         <img class="title_yth" src="{{asset('img/youngth.png')}}" alt="youngth"/>
         <h3 class="title_2">评选表彰活动专题网</h3>
         <h3 class="title_3">
-            <span>塑高尚师德模范</span>
-            <span>做敬业爱生教师</span>
+            <span class="title_3_1">塑高尚师德模范</span>
+            <span class="title_3_2">做敬业爱生教师</span>
         </h3>
     </div>
 
