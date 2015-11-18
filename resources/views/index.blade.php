@@ -50,10 +50,10 @@
 	                        <form action="{{route('login')}}" method="POST" id="log_form">
 	                        	<!-- 报错 -->
 	                        	<span class="log_err"></span>
-	                            <label>
+	                            <label>*学号（学生）/一卡通（教师）
 	                                <input id="user" class="log_info" type="text" value="{{old('user')}}" name="user" placeholder="用户名"/>
 	                            </label>
-	                            <label>
+	                            <label>*默认重邮通行证密码
 	                                <input id="password" class="log_info" type="password" placeholder="密   码" name="password"/>
 	                            </label>
 	                            {{--csrf--}}
