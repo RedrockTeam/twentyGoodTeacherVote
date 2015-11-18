@@ -14,7 +14,7 @@
     <div class="vote">
 
         <ul class="vote_nav">
-            <a href="#rule"><li class="vote_nav_li">投票规则</li></a>
+            <a href="#rule"><li class="vote_nav_li vote_nav_li_sel">投票规则</li></a>
             <a href="#nor"><li class="vote_nav_li">十佳师德标兵</li></a>
             <a href="#yth"><li class="vote_nav_li">十佳青年教师</li></a>
         </ul>
