@@ -74,3 +74,5 @@
         </div>
     </div>
 @stop
+
+<script>$(document.body).scrollTop(500);</script>
