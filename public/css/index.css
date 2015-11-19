@@ -120,11 +120,21 @@ body {
   border: 0;
   margin: 305px auto 0 auto;
   margin-bottom: 62px;
+  position: relative;
 }
 .title_3 span {
   display: block;
-  float: left;
-  margin: 10px 14px;
+  height: 22px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.title_3_1 {
+  left: 14px;
+}
+.title_3_2 {
+  right: 14px;
 }
 .container:after {
   display: block;
