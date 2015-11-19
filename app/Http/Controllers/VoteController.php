@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Input;
 class VoteController extends Controller
 {
 
+    //网站投票
     public function update() {
         $data = Input::all();
+        $type = $data['type'];
         $user = Auth::user();
         $vote = UserVote::where('user_id', $user->id)
-                ->where('type', '1')
+                ->where('type', $type)
                 ->where('created_at', date('Y-m-d', time()))
                 ->where('candidate_type', $data)//todo
                 ->count();
@@ -43,11 +45,13 @@ class VoteController extends Controller
             return ['status' => 403, 'info' => '候选人必须7-10人'];
         }
         Candidate::whereIn('id', $result)->increment('pc_vote');
-
-        UserVote::create(['user_id' => $user->id, 'type' => '1']);
+        foreach($result as $id) {
+            UserVote::create(['user_id' => $user->id, 'type' => $type, 'candidate_id' => $id]);
+        }
         return ['status' => 200, 'info' => '投票成功'];
     }
 
+    //微信投票
     public function weixinUpdate() {
         $data = Input::all();
         $user = Auth::user();

@@ -26,150 +26,42 @@
         </div>
         <div id="nor" class="vote_container vote_container_hide">
             <!--voted已投票-->
-            <form id="vote_form_nor" class="vote_form" action="#" method="GET" data-voted="1">
+            <form id="vote_form_nor" class="vote_form" action="#" method="GET" data-voted="{{$morality_vote}}">
                 <ul class="vote_peo_list">
-                    <li class="vote_peo_li">
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="0"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="1"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="2"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people vote_people_last">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="3"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                    </li>
-                    <li class="vote_peo_li">
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="4"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="5"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="6"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people vote_people_last">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="7"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                    </li>
-                    <li class="vote_peo_li">
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="8"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="9"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="10"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people vote_people_last">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#nor">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="11"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                    </li>
-
+                        @foreach($morality as $key => $value)
+                            @if($key%4 == 0)
+                                <li class="vote_peo_li">
+                            @endif
+                            <div class="vote_people @if($key%4 == 3 || $key == (count($morality) - 1)) vote_people_last @endif">
+                                <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="{{route('detail', ['id' => $value->id])}}#nor">查看详情</a></span><img src="{{asset("upload").'/'.$value->avatar}}" alt="face"/></div>
+                                <p class="vote_name">{{$value->name}}<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="{{$value->id}}"/></p>
+                                <p class="vote_part">{{$value->unit}}</p>
+                            </div>
+                            @if($key%4 == 3 || $key == (count($morality) - 1))
+                                </li>
+                            @endif
+                        @endforeach
                 </ul>
                 <input class="vote_sub" type="submit" value="投票">
             </form>
 
         </div>
         <div id="yth" class="vote_container vote_container_hide">
-            <form id="vote_form_yth" class="vote_form" action="#" method="GET">
+            <form id="vote_form_yth" class="vote_form" action="#" method="GET" data-voted="{{$youngth_vote}}">
                 <ul class="vote_peo_list">
-                    <li class="vote_peo_li">
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="0"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="1"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="2"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people vote_people_last">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="3"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                    </li>
-                    <li class="vote_peo_li">
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="4"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="5"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="6"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people vote_people_last">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="7"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                    </li>
-                    <li class="vote_peo_li">
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="8"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="9"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="10"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                        <div class="vote_people vote_people_last">
-                            <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="detail.html#yth">查看详情</a></span><img src="img/face.jpg" alt="face"/></div>
-                            <p class="vote_name">李四<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="yth" value="11"/></p>
-                            <p class="vote_part">传媒艺术学院</p>
-                        </div>
-                    </li>
-
+                    @foreach($youngth as $key => $value)
+                        @if($key%4 == 0)
+                            <li class="vote_peo_li">
+                                @endif
+                                <div class="vote_people @if($key%4 == 3 || $key == (count($youngth) - 1)) vote_people_last @endif">
+                                    <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="{{route('detail', ['id' => $value->id])}}#nor">查看详情</a></span><img src="{{asset("upload").'/'.$value->avatar}}" alt="face"/></div>
+                                    <p class="vote_name">{{$value->name}}<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="{{$value->id}}"/></p>
+                                    <p class="vote_part">{{$value->unit}}</p>
+                                </div>
+                                @if($key%4 == 3 || $key == (count($youngth) - 1))
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
                 <input class="vote_sub" type="submit" value="投票">
 
@@ -180,5 +72,6 @@
 
 @section('js')
 @parent
-<script src="{{asset('js/vote-min.js')}}"></script>
+<script>var url = "{{route('voteMethod')}}"</script>
+<script src="{{asset('js/vote.js')}}"></script>
 @stop
