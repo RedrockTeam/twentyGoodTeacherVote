@@ -57,7 +57,7 @@ class AdminController extends Controller
         $photo->move(public_path('upload'), $filename);
         $data['avatar'] = $filename;
         Candidate::create($data);
-        return redirect()->back()->withErrors('info', '成功');
+        return redirect()->back()->withErrors('成功', 'info');
     }
 
 }

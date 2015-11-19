@@ -27,7 +27,7 @@
                         <input type="text" class="form-control"  placeholder="" name="name">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">介绍</label>
+                        <label for="exampleInputPassword1">主要事迹</label>
                         <input type="text" class="form-control"  placeholder="" name="introduce">
                     </div>
                     <div class="form-group">
@@ -35,11 +35,42 @@
                         <input type="text" class="form-control"  placeholder="" name="unit">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputPassword1">出   生   年   月</label>
+                        <input type="text" class="form-control"  placeholder="" name="birthday">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">参加工作时间</label>
+                        <input type="text" class="form-control"  placeholder="" name="worktime">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">专业技术职务</label>
+                        <input type="text" class="form-control"  placeholder="" name="major_level">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">行   政   职   务</label>
+                        <input type="text" class="form-control"  placeholder="" name="level">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">最   高   学   位 </label>
+                        <input type="text" class="form-control"  placeholder="" name="degree">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">突出成绩取得情况 </label>
+                        <input type="text" class="form-control"  placeholder="" name="grade">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputFile">选择类型</label>
                     <select class="form-control" name="type">
                         <option value="1">十佳师德标兵</option>
                         <option value="2">十佳青年教师</option>
                     </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">选择性别</label>
+                        <select class="form-control" name="gender">
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">上传照片</label>

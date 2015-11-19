@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Ad;
+use App\Model\Candidate;
 use App\Model\UserVote;
 use App\User;
 use Illuminate\Http\Request;
@@ -30,27 +31,62 @@ class IndexController extends Controller {
     }
 
     //
-    public function detail() {
-        return view('detail');
+    public function detail(Request $request) {
+        $id = $request->id;
+        $data = Candidate::find($id);
+        return view('detail')->with('data', $data);
     }
 
     //投票页面
     public function vote() {
+        $morality = Candidate::where('type', '1')->get();
+        $youngth = Candidate::where('type', '2')->get();
         if(!Auth::check()) {
-            return view('vote');
+            return view('vote')->with('morality', $morality)->with('youngth', $youngth);
         }
         $user = Auth::user();
-        $morality = UserVote::where('user_id', '=', $user->id)
+        $morality_voted = UserVote::where('user_id', '=', $user->id)
                             ->where('type', '=', '1')
                             ->where('created_at', '=', date('Y-m-d', time()))
                             ->where('candidate_type', '=', '1')
-                            ->get();
-        $youngth = UserVote::where('user_id', $user->id)
+                            ->lists('candidate_id')
+                            ->toArray();
+        $youngth_voted = UserVote::where('user_id', $user->id)
                             ->where('type', '1')
                             ->where('created_at', date('Y-m-d', time()))
                             ->where('candidate_type', '2')
-                            ->get();
-        return view('vote')->with('morality', $morality)->with('youngth', $youngth);
+                            ->lists('candidate_id')
+                            ->toArray();
+        foreach($morality as $value) {
+            if(in_array($value->id, $morality_voted)){
+                $value->vote = 1;
+                $morality_voted_peo[] = $value->id;
+            } else {
+                $value->vote = 0;
+            }
+        }
+        if(!isset($morality_voted_peo))  {
+           $morality_voted_peo = "";
+        } else {
+           $morality_voted_peo = json_encode($morality_voted_peo);
+        }
+        if(!$morality_voted_peo) {
+            $morality_voted_peo = "";
+        }
+        foreach($youngth as $value) {
+            if(in_array($value->id, $youngth_voted)){
+                $value->vote = 1;
+                $youngth_voted_peo[] = $value->id;
+            } else {
+                $value->vote = 0;
+            }
+        }
+        if(!isset($youngth_voted_peo))  {
+            $youngth_voted_peo = "";
+        } else {
+            $youngth_voted_peo = json_encode($youngth_voted_peo);
+        }
+        return view('vote')->with('morality', $morality)->with('youngth', $youngth)->with('morality_vote', $morality_voted_peo)->with('youngth_vote', $youngth_voted_peo);
     }
 
     //

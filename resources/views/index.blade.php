@@ -77,7 +77,7 @@
             <a class="bu_nav_link" href="{{route('norm')}}">
                 <button class="bu_nav shadow"><img src="{{asset('img/write.png')}}" alt="write"/>我来提名</button>
             </a>
-            <a class="bu_nav_link" href="#">
+            <a class="bu_nav_link" href="{{route('vote')}}">
                 <button class="bu_nav shadow bu_nav_mar"><img src="{{asset('img/drafts.png')}}" alt="write"/>网络投票</button>
             </a>
             <a class="bu_nav_link" href="#">
