@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Input;
 class VoteController extends Controller
 {
 
+    //网站投票
     public function update() {
         $data = Input::all();
         $type = $data['type'];
@@ -50,6 +51,7 @@ class VoteController extends Controller
         return ['status' => 200, 'info' => '投票成功'];
     }
 
+    //微信投票
     public function weixinUpdate() {
         $data = Input::all();
         $user = Auth::user();

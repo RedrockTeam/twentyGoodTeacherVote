@@ -72,5 +72,6 @@
 
 @section('js')
 @parent
+<script>var url = "{{route('voteMethod')}}"</script>
 <script src="{{asset('js/vote.js')}}"></script>
 @stop
