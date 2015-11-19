@@ -13,6 +13,11 @@
 </head>
 <body>
     <div class="container-fluid">
+        @if(!$errors->info->isEmpty())
+            <div class="row text-center">
+                <div class="col-md-12"><div class="alert alert-danger" role="alert">{{$errors->info->all()[0]}}</div></div>
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">

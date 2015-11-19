@@ -50,7 +50,7 @@ class AdminController extends Controller
     public function addCandidate(Request $request) {
         $data = Input::all();
         if (!$request->hasFile('photo')) {
-            return redirect()->back()->withErrors('info', '图片不存在');
+            return redirect()->back()->withErrors('图片不存在', 'info');
         }
         $photo = $request->file('photo');
         $filename = time().'.jpg';
