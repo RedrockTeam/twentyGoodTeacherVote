@@ -78,6 +78,7 @@ class AdminController extends Controller {
             return redirect(route('admin/login'));;
         }
         $data = Input::all();
+        return $data;
         if (!$request->hasFile('photo')) {
             return redirect()->back()->withErrors('图片不存在', 'info');
         }
