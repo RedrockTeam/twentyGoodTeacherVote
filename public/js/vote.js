@@ -167,7 +167,20 @@
                         _$sub.removeClass('vote_subed').val('投票');
                         alert(_info);
                     }else{
+                        _$form.data('voted',_checked);
                         _$sub.val('已投票');
+                        _$form.find('.vote_v').each(function(){
+                            var _$check = $(this).next(),
+                                _len = _checked.length;
+                            for(var i = 0;i<_len;i++){
+                                if(_$check.val() == _checked[i]){
+//                            console.log(1);
+                                    $(this).addClass('vote_ved').html('&#xe660;');
+                                    break;
+                                }
+                            }
+
+                        });
                         alert('投票成功！');
                     }
                     _vote_b = true;
