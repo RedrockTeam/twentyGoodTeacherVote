@@ -34,6 +34,8 @@ class IndexController extends Controller {
     public function detail(Request $request) {
         $id = $request->id;
         $data = Candidate::find($id);
+        $data['grade'] = str_replace("\n", '<br>', $data['grade']);
+        $data['introduce'] = str_replace("\n", '<br>', $data['introduce']);
         return view('detail')->with('data', $data);
     }
 

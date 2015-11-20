@@ -33,8 +33,8 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">主要事迹</label>
-                        <input type="text" class="form-control"  placeholder="" name="introduce">
-                    </div>
+                            <textarea name="introduce" class="form-control" rows="3"></textarea>
+                        </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">单位</label>
                         <input type="text" class="form-control"  placeholder="" name="unit">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">突出成绩取得情况 </label>
-                        <input type="text" class="form-control"  placeholder="" name="grade">
+                        <textarea name="grade" class="form-control" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">选择类型</label>
