@@ -56,13 +56,13 @@
             <div class="detail_group">
                 <span class="detail_key">主&nbsp;&nbsp;&nbsp;要&nbsp;&nbsp;&nbsp;事&nbsp;&nbsp;&nbsp;迹 :</span>
                 <span class="detail_val detail_val_blo">
-                    <p class="detail_val_p">{{$data->introduce}}</p>
+                    <p class="detail_val_p">{!! $data->introduce !!}</p>
                 </span>
             </div>
             <div class="detail_group">
                 <span class="detail_key">突出成绩取得情况:</span>
                 <span class="detail_val detail_val_blo">
-                    <p class="detail_val_p">{{$data->grade}}</p>
+                    <p class="detail_val_p">{!! $data->grade !!}</p>
                 </span>
             </div>
         </div>
