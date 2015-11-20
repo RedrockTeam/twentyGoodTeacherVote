@@ -79,6 +79,32 @@ class AdminController extends Controller {
         }
         return view('admin.add');
     }
+    public function editAd() {
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        $data = Ad::all(['id', 'title']);
+        return view('admin.editAd')->with('data', $data);
+    }
+
+    public function adDel() {
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        $data = Input::all();
+        Ad::destroy($data['id']);
+        return ['status' => 200, 'info' => '成功'];
+    }
+
+    public function adEdit() {
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        $input = Input::all();
+        $data = Ad::find($input['id']);
+        return view('admin.ad')->with('data', $data)->with('flag', $data['id']);
+    }
+
     public function addAd(Request $request){
         if(Session::get('role') != 'admin') {
             return redirect(route('admin/login'));;
@@ -111,7 +137,13 @@ class AdminController extends Controller {
             $file->move(public_path('upload'), $filename);
             $data['file'] = $filename;
         }
-        Ad::create($data);
+        if($data['id'] == 0) {
+            Ad::create($data);
+
+        } else {
+            unset($data['_token']);
+            Ad::where('id', $data['id'])->update($data);
+        }
         return redirect()->back()->withErrors('成功', 'info');
     }
     public function addCandidate(Request $request) {
