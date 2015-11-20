@@ -14,8 +14,8 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">修改</div>
-            <div class="col-md-4">添加</div>
+            <div class="col-md-4"><a href="{{route('admin/index')}}">修改</a></div>
+            <div class="col-md-4"><a href="{{route('admin/add')}}">添加</a></div>
             <div class="col-md-4"></div>
         </div>
         <div class="row">
