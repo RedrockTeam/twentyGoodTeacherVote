@@ -25,7 +25,7 @@ class VoteController extends Controller
         $vote = UserVote::where('user_id', $user->id)
                 ->where('type', $type)
                 ->where('created_at', date('Y-m-d', time()))
-                ->where('candidate_type', $data)//todo
+                ->where('candidate_type', $type)//todo
                 ->count();
         if($vote) {
             return ['status' => 403, 'info' => '你今天已经在网站投过票了'];
