@@ -98,6 +98,7 @@ class AdminController extends Controller {
             $data['file'] = '';
         } else {
             $file = $request->file('photo');
+            return $file->getClientOriginalExtension();
             $validator = Validator::make(
                 ['file' => $file],
                 [
