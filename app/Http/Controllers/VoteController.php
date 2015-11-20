@@ -16,6 +16,9 @@ class VoteController extends Controller
 
     //网站投票
     public function update() {
+        if(!Auth::check()) {
+            return ['status' => 403, 'info' => '请先登录'];
+        }
         $data = Input::all();
         $type = $data['type'];
         $user = Auth::user();
@@ -54,6 +57,7 @@ class VoteController extends Controller
     //微信投票
     public function weixinUpdate() {
         $data = Input::all();
+        return $data;
         $user = Auth::user();
         $vote = UserVote::where('user_id', $user->id)
             ->where('type', '1')

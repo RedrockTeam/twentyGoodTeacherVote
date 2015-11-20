@@ -129,7 +129,7 @@
             }
             _obj.data = _checked;
             _obj._token = _token;
-            _obj = JSON.stringify(_obj);
+            //_obj = JSON.stringify(_obj);
             console.log(typeof _obj,_obj);
             var _$sub = _$form.find('.vote_sub'),
                 _vote_b = false;
@@ -147,10 +147,11 @@
             }
             setTimeout(vote_ani,500);
 //            alert(1);
+//            console.log(typeof {type:'1'});
             $.ajax({
                 type:"POST",
                 url:url,
-                data:_obj,
+                data: _obj,
                 dataType:"json",
                 success:function(data){
                     var _res = JSON.parse(data);
