@@ -98,7 +98,6 @@ class AdminController extends Controller {
             $data['file'] = '';
         } else {
             $file = $request->file('photo');
-            return $file->getClientOriginalExtension();
             $validator = Validator::make(
                 ['file' => $file],
                 [
@@ -109,7 +108,7 @@ class AdminController extends Controller {
             if($validator->fails()){
                 return redirect()->back()->withErrors('非法文件!', 'info');
             }
-            $filename = time().'.zip';
+            $filename = time().$file->getClientOriginalExtension();
             $file->move(public_path('upload'), $filename);
             $data['file'] = $filename;
         }
