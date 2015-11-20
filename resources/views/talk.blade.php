@@ -11,7 +11,12 @@
             <p class="talk_title_time">{{$data->created_at}}</p>
         </div>
         <p class="talk_main">
-            {{$data->content}}
+            {!! $data->content !!}
         </p>
+        @if($data->file)
+            <p class="talk_main">
+                附件: <a href="{{asset('upload')}}/{{$data->file}}">{{$data->file}}</a>
+            </p>
+        @endif
     </div>
 @stop

@@ -20,9 +20,9 @@ class IndexController extends Controller {
 
     //首页
     public function index() {
-        $ad = Ad::all();
-        $test = 'dsaf';
-        return view('index')->with('ad', $ad)->with('test', $test);
+        $ad = Ad::orderBy('id', 'desc')->get();
+
+        return view('index')->with('ad', $ad);
     }
 
     //提名页面
@@ -34,6 +34,8 @@ class IndexController extends Controller {
     public function detail(Request $request) {
         $id = $request->id;
         $data = Candidate::find($id);
+        $data['grade'] = str_replace("\n", '<br>', $data['grade']);
+        $data['introduce'] = str_replace("\n", '<br>', $data['introduce']);
         return view('detail')->with('data', $data);
     }
 
@@ -89,10 +91,6 @@ class IndexController extends Controller {
         return view('vote')->with('morality', $morality)->with('youngth', $youngth)->with('morality_vote', $morality_voted_peo)->with('youngth_vote', $youngth_voted_peo);
     }
 
-    //
-    public function talk() {
-        return view('talk');
-    }
 
     //登录
     public function login() {

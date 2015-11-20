@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Ad;
 use Illuminate\Routing\Controller;
 use App\Model\Candidate;
 use Illuminate\Http\Request;
@@ -66,13 +67,85 @@ class AdminController extends Controller {
         return ['status' => 200, 'info' => '成功'];
     }
 
+    public function ad() {
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        return view('admin.ad');
+    }
     public function add() {
         if(Session::get('role') != 'admin') {
             return redirect(route('admin/login'));;
         }
         return view('admin.add');
     }
+    public function editAd() {
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        $data = Ad::all(['id', 'title']);
+        return view('admin.editAd')->with('data', $data);
+    }
 
+    public function adDel() {
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        $data = Input::all();
+        Ad::destroy($data['id']);
+        return ['status' => 200, 'info' => '成功'];
+    }
+
+    public function adEdit() {
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        $input = Input::all();
+        $data = Ad::find($input['id']);
+        return view('admin.ad')->with('data', $data)->with('flag', $data['id']);
+    }
+
+    public function addAd(Request $request){
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        $data = Input::all();
+        $validator = Validator::make(
+            $data,
+            [
+                'title' => 'required',
+                'content' => 'required',
+            ]
+        );
+        if($validator->fails()) {
+            return redirect()->back()->withErrors('标题内容不能为空!', 'info');
+        }
+        if (!$request->hasFile('photo')) {
+            $data['file'] = '';
+        } else {
+            $file = $request->file('photo');
+            $validator = Validator::make(
+                ['file' => $file],
+                [
+                    'file' => 'mimes:zip,rar,doc,docx',
+                ]
+            );
+            if($validator->fails()){
+                return redirect()->back()->withErrors('非法文件!', 'info');
+            }
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $file->move(public_path('upload'), $filename);
+            $data['file'] = $filename;
+        }
+        if($data['id'] == 0) {
+            Ad::create($data);
+
+        } else {
+            unset($data['_token']);
+            Ad::where('id', $data['id'])->update($data);
+        }
+        return redirect()->back()->withErrors('成功', 'info');
+    }
     public function addCandidate(Request $request) {
         if(Session::get('role') != 'admin') {
             return redirect(route('admin/login'));;
