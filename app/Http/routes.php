@@ -34,8 +34,10 @@ Route::group(['prefix' => ''], function() {
 Route::group(['prefix' => 'admin'], function() {
     Route::get('index', ['as' => 'admin/index', 'uses' => 'AdminController@index']);
     Route::get('add', ['as' => 'admin/add', 'uses' => 'AdminController@add']);
+    Route::get('ad', ['as' => 'admin/ad', 'uses' => 'AdminController@ad']);
     Route::get('login', ['as' => 'admin/login', 'uses' => 'AdminController@login']);
     Route::post('edit', ['as' => 'admin/edit', 'uses' => 'AdminController@edit']);
+    Route::post('addad', ['as' => 'admin/addad', 'uses' => 'AdminController@addAd']);
     Route::post('verify', ['as' => 'admin/verify', 'uses' => 'AdminController@verify']);
     Route::post('addCandidate', ['as' => 'admin/addCandidate', 'uses' => 'AdminController@addCandidate']);
     Route::post('updatestatus', ['as' => 'admin/updatestatus', 'uses' => 'AdminController@operationCandidate']);
