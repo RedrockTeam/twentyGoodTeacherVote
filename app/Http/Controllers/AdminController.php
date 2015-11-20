@@ -108,7 +108,7 @@ class AdminController extends Controller {
             if($validator->fails()){
                 return redirect()->back()->withErrors('非法文件!', 'info');
             }
-            $filename = time().'.zip';
+            $filename = time().$file->getClientOriginalExtension();
             $file->move(public_path('upload'), $filename);
             $data['file'] = $filename;
         }
