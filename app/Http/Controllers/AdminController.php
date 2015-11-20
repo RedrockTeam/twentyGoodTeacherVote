@@ -98,8 +98,14 @@ class AdminController extends Controller {
             $data['file'] = '';
         } else {
             $file = $request->file('photo');
-            if('application/zip' != $file->getClientMimeType()){
-                return [$file->getExtension(), $file->getType()];
+            $validator = Validator::make(
+                ['file' => $file],
+                [
+                    'file' => 'mimes:zip,rar,doc,docx',
+
+                ]
+            );
+            if($validator->fails()){
                 return redirect()->back()->withErrors('非法文件!', 'info');
             }
             $filename = time().'.zip';
