@@ -15,7 +15,10 @@
                     for(var i = 0;i<_len;i++){
                         if(_$check.val() == voted[i]){
 //                            console.log(1);
-                            $(this).addClass('vote_ved').html('&#xe660;');
+                            $(this).addClass('vote_ved').html('&#xe660;').css({
+                                fontSize:'30px',
+                                lineHeight:'38px'
+                            });
                             break;
                         }
                     }
@@ -63,9 +66,10 @@
             return false;
         }
         $(this).css({
-            width:'30px',
-            height:'30px',
-            right:'0'
+//            width:'30px',
+//            height:'30px',
+            fontSize:'30px'
+//            right:'0'
         });
     });
     $vote.on('mouseleave',function(){
@@ -73,9 +77,10 @@
             return false;
         }
         $(this).css({
-            width:'20px',
-            height:'20px',
-            right:'5px'
+//            width:'20px',
+//            height:'20px',
+            fontSize:'20px'
+//            right:'5px'
         });
     });
     $vote.on('click',function(){
@@ -86,17 +91,21 @@
         }
         if(_$check.prop('checked')){
             _$vote.css({
-                borderWidth:'2px',
-                right:'0px'
-            }).html('');
+//                borderWidth:'2px',
+//                right:'0px'
+//                lineHeight:'34px',
+                color:'#c3a1a7'
+            }).html('&#xe651;');
             _$check.prop('checked',false);
         }
         else{
             _$vote.css({
-                borderWidth:'0px',
-                width:'30px',
-                height:'30px',
-                right:'2px'
+//                borderWidth:'0px',
+//                width:'30px',
+//                height:'30px',
+//                right:'2px'
+//                lineHeight:'38px',
+                color:'#ff9125'
             }).html('&#xe660;');
             _$check.prop('checked',true);
         }
@@ -175,7 +184,10 @@
                             for(var i = 0;i<_len;i++){
                                 if(_$check.val() == _checked[i]){
 //                            console.log(1);
-                                    $(this).addClass('vote_ved').html('&#xe660;');
+                                    $(this).addClass('vote_ved').html('&#xe660;').css({
+                                        fontSize:'30px',
+                                        lineHeight:'38px'
+                                    });
                                     break;
                                 }
                             }

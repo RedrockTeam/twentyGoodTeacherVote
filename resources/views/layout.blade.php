@@ -5,9 +5,17 @@
     <title>双十佳</title>
     @yield('css')
     <style type="text/css">
-        .bk{background: url("{{asset('img/bk.jpg')}}") no-repeat #ce1e35;}
-        .nav{background:url("{{asset('img/nav_bk.png')}}") no-repeat;}
-        .title_3{background: url("{{asset('img/title_bk.png')}}") no-repeat;}
+        .bk{background: url("img/bk.jpg") no-repeat #ce1e35;
+            background-size: 100% auto;
+        }
+        .nav{background:url("img/nav_bk.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .content{
+            background: url("img/fly.png") no-repeat;
+            background-position: -85px -50px;
+        }
+        .title_3{background: url("img/title_bk.png") no-repeat;}
     </style>
 </head>
 <body>
