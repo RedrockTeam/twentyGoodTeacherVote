@@ -14,9 +14,10 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4"><a href="{{route('admin/index')}}">修改</a></div>
-            <div class="col-md-4"><a href="{{route('admin/add')}}">添加</a></div>
-            <div class="col-md-4"><a href="{{route('admin/ad')}}">发公告</a></div>
+            <div class="col-md-3"><a href="{{route('admin/index')}}">修改</a></div>
+            <div class="col-md-3"><a href="{{route('admin/add')}}">添加</a></div>
+            <div class="col-md-3"><a href="{{route('admin/ad')}}">发公告</a></div>
+            <div class="col-md-3"><a href="{{route('admin/editAd')}}">公告列表</a></div>
         </div>
         <div class="row">
             <div class="col-md-1 h3">ID</div>
