@@ -99,6 +99,7 @@ class AdminController extends Controller {
         } else {
             $file = $request->file('photo');
             if('application/zip' != $file->getClientMimeType()){
+                return $file->getClientMimeType();
                 return redirect()->back()->withErrors('非法文件!', 'info');
             }
             $filename = time().'.zip';
