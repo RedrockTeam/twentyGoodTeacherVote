@@ -43,7 +43,7 @@
                         @endforeach
 
                 </ul>
-                @if($morality)
+                @if(count($morality) != 0)
                     <input class="vote_sub" type="submit" value="投票">
                 @else
                     暂无候选人
@@ -68,7 +68,7 @@
                         @endif
                     @endforeach
                 </ul>
-                @if($youngth)
+                @if(count($youngth) != 0)
                 <input class="vote_sub" type="submit" value="投票">
                     @else
                     暂无候选人
