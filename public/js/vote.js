@@ -128,6 +128,7 @@
                 _obj.type = 2;
             }
             _obj.data = _checked;
+            _obj._token = _token;
             _obj = JSON.stringify(_obj);
             console.log(typeof _obj,_obj);
             var _$sub = _$form.find('.vote_sub'),
