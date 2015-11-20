@@ -39,8 +39,8 @@ class IndexController extends Controller {
 
     //投票页面
     public function vote() {
-        $morality = Candidate::where('type', '1')->get();
-        $youngth = Candidate::where('type', '2')->get();
+        $morality = Candidate::where('type', '1')->where('status', '1')->get();
+        $youngth = Candidate::where('type', '2')->where('status', '1')->get();
         if(!Auth::check()) {
             return view('vote')->with('morality', $morality)->with('youngth', $youngth)->with('morality_vote', '')->with('youngth_vote', '');
         }
