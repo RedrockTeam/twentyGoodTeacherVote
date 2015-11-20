@@ -14,7 +14,7 @@
                         _len = voted.length;
                     for(var i = 0;i<_len;i++){
                         if(_$check.val() == voted[i]){
-                            console.log(1);
+//                            console.log(1);
                             $(this).addClass('vote_ved').html('&#xe660;');
                             break;
                         }
@@ -129,6 +129,7 @@
             }
             _obj.data = _checked;
             _obj = JSON.stringify(_obj);
+            console.log(typeof _obj,_obj);
             var _$sub = _$form.find('.vote_sub'),
                 _vote_b = false;
             _$sub.addClass('vote_subed').val('正在奋力帮您投票.');
@@ -146,8 +147,8 @@
             setTimeout(vote_ani,500);
 //            alert(1);
             $.ajax({
-                type:"GET",
-                url:"#",
+                type:"POST",
+                url:url,
                 data:_obj,
                 dataType:"json",
                 success:function(data){
