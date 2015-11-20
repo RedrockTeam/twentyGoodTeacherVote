@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Ad;
 use Illuminate\Routing\Controller;
 use App\Model\Candidate;
 use Illuminate\Http\Request;
@@ -66,13 +67,47 @@ class AdminController extends Controller {
         return ['status' => 200, 'info' => '成功'];
     }
 
+    public function ad() {
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        return view('admin.ad');
+    }
     public function add() {
         if(Session::get('role') != 'admin') {
             return redirect(route('admin/login'));;
         }
         return view('admin.add');
     }
-
+    public function addAd(Request $request){
+        if(Session::get('role') != 'admin') {
+            return redirect(route('admin/login'));;
+        }
+        $data = Input::all();
+        $validator = Validator::make(
+            $data,
+            [
+                'title' => 'required',
+                'content' => 'required',
+            ]
+        );
+        if($validator->fails()) {
+            return redirect()->back()->withErrors('标题内容不能为空!', 'info');
+        }
+        if (!$request->hasFile('photo')) {
+            $data['file'] = '';
+        } else {
+            $file = $request->file('photo');
+            if('application/zip' != $file->getClientMimeType()){
+                return redirect()->back()->withErrors('非法文件!', 'info');
+            }
+            $filename = time().'.zip';
+            $file->move(public_path('upload'), $filename);
+            $data['file'] = $filename;
+        }
+        Ad::create($data);
+        return redirect()->back()->withErrors('成功', 'info');
+    }
     public function addCandidate(Request $request) {
         if(Session::get('role') != 'admin') {
             return redirect(route('admin/login'));;
