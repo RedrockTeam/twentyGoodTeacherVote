@@ -101,7 +101,12 @@
             _$check.prop('checked',true);
         }
     });
+    //正在投票时禁用submit
+    var voting = false;
     $('.vote_form').on('submit',function(){
+        if(voting){
+            return false;
+        }
         var _$form = $(this),
             _checked = [],
             _obj = {},
@@ -121,6 +126,7 @@
             return false;
         }
         if(_len>6&&_len<11){
+            voting = true;
             _type = _$form.find('.vote_v_in').prop('name');
             if(_type === 'nor'){
                 _obj.type = 1;
@@ -129,9 +135,10 @@
             }
             _obj.data = _checked;
             _obj._token = _token;
-            _obj = JSON.stringify(_obj);
+//            _obj = JSON.stringify(_obj);
             console.log(typeof _obj,_obj);
             var _$sub = _$form.find('.vote_sub'),
+                //判断动画是否已结束
                 _vote_b = false;
             _$sub.addClass('vote_subed').val('正在奋力帮您投票.');
             function vote_ani(){
@@ -153,7 +160,7 @@
                 data:_obj,
                 dataType:"json",
                 success:function(data){
-                    var _res = JSON.parse(data);
+                    var _res = data;
                     var _status = _res.status,
                         _info = _res.info;
                     if(_status === 403){
@@ -164,11 +171,13 @@
                         alert('投票成功！');
                     }
                     _vote_b = true;
+                    voting = false;
                 },
                 error:function(){
                     _$sub.removeClass('vote_subed').val('投票');
                     alert('投票失败');
                     _vote_b = true;
+                    voting = false;
                 }
             });
 

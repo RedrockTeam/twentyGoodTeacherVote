@@ -80,6 +80,9 @@
 
 @section('js')
 @parent
-<script>var url = "{{route('voteMethod')}}"</script>
+<script>
+    var url = "{{route('voteMethod')}}";
+    var _token = "{{csrf_token()}}";
+</script>
 <script src="{{asset('js/vote.js')}}"></script>
 @stop

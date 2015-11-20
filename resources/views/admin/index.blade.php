@@ -45,7 +45,7 @@
                 <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->student_vote}}" name="student_vote"></div>
                 <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->teacher_vote}}" name="teacher_vote"></div>
                 <div class="col-md-1">{{$value->created_at}}</div>
-                <div class="col-md-1">{!! $value->status == 0 ? '<span class="label label-danger">冻结</span>':'<span class="label label-success">正常</span>' !!}</div>
+                <div class="col-md-1">{!! $value->status == 0 ? '<span class="label label-danger">冻结</span>':'<span class="label label-success">正常</span>' !!} {{$value->type == 1? '师德':'青年'}}</div>
                 <div class="col-md-2">
                     <span><button class="btn btn-xs btn-warning" data-id="{{$value->id}}">修改</button></span>
                     <span><button class="btn btn-xs btn-success" data-id="{{$value->id}}">激活</button></span>
