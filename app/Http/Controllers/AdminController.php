@@ -102,7 +102,6 @@ class AdminController extends Controller {
                 ['file' => $file],
                 [
                     'file' => 'mimes:zip,rar,doc,docx',
-
                 ]
             );
             if($validator->fails()){
