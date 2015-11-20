@@ -12,7 +12,7 @@ class Candidate extends Model {
         'introduce', 'status',
         'unit', 'gender',
     'birthday', 'worktime',
-    'major_level',
+    'major_level','type',
     'level','degree', 'grade'];
 
 }
