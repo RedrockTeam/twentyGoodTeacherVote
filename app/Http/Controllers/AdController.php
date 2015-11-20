@@ -45,6 +45,7 @@ class AdController extends Controller
         if(!$data) {
            return response('404', 404);
         }
+        $data['content'] = str_replace("\n", '<br>', $data['content']);
         return view('talk')->with('data',$data);
     }
 
