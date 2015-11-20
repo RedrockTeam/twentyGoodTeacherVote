@@ -5,14 +5,19 @@
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <style>
-        body {
-            background-color: #337ab7;
-        }
+        /*body {*/
+            /*background-color: #337ab7;*/
+        /*}*/
     </style>
     <title>双十佳后台</title>
 </head>
 <body>
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">修改</div>
+            <div class="col-md-4">添加</div>
+            <div class="col-md-4"></div>
+        </div>
         <div class="row">
             <div class="col-md-1 h3">ID</div>
             <div class="col-md-1 h3">姓名</div>
