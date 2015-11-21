@@ -71,30 +71,20 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach($mo as $key => $value)
                 <tr>
-                    <td>1</td>
-                    <td>咬碎</td>
-                    <td>100</td>
-                    <td>100</td>
-                    <td>0</td>
-                    <td>100</td>
-                    <td>0</td>
-                    <td>100</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>{{$key+1}}</td>
+                    <td>{{$value->name}}</td>
+                    <td>{{$value->pc_vote}}</td>
+                    <td>{{$value->wechat_vote}}</td>
+                    <td>{{$value->online_score}}</td>
+                    <td>{{$value->student_vote}}</td>
+                    <td>{{$value->student_score}}</td>
+                    <td>{{$value->teacher_vote}}</td>
+                    <td>{{$value->teacher_score}}</td>
+                    <td>{{$value->total_score}}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>腿毛</td>
-                    <td>100</td>
-                    <td>100</td>
-                    <td>0</td>
-                    <td>100</td>
-                    <td>0</td>
-                    <td>100</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
+            @endforeach
             </tbody>
         </table>
         <h3 class="rank_h rank_yth">“十佳青年教师”候选人排行榜</h3>
@@ -119,30 +109,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>咬碎</td>
-                <td>100</td>
-                <td>100</td>
-                <td>0</td>
-                <td>100</td>
-                <td>0</td>
-                <td>100</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>腿毛</td>
-                <td>100</td>
-                <td>100</td>
-                <td>0</td>
-                <td>100</td>
-                <td>0</td>
-                <td>100</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
+            @foreach($yo as $key => $value)
+                <tr>
+                    <td>{{$key+1}}</td>
+                    <td>{{$value->name}}</td>
+                    <td>{{$value->pc_vote}}</td>
+                    <td>{{$value->wechat_vote}}</td>
+                    <td>{{$value->online_score}}</td>
+                    <td>{{$value->student_vote}}</td>
+                    <td>{{$value->student_score}}</td>
+                    <td>{{$value->teacher_vote}}</td>
+                    <td>{{$value->teacher_score}}</td>
+                    <td>{{$value->total_score}}</td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Ixudra\Curl\Facades\Curl;
@@ -20,8 +21,7 @@ class IndexController extends Controller {
 
     //首页
     public function index() {
-        $ad = Ad::orderBy('id', 'desc')->get();
-
+        $ad = Ad::orderBy('id', 'desc')->limit(10)->get();
         return view('index')->with('ad', $ad);
     }
 
@@ -30,7 +30,128 @@ class IndexController extends Controller {
         return view('norm');
     }
 
-    //
+    //排行榜
+    public function rank() {
+        $mo_online = DB::select("select (pc_vote + wechat_vote) AS vote from candidate
+				where type = '1'
+				ORDER BY
+					vote DESC limit 10");
+        $mo_first = $mo_online[2]->vote;
+        $mo_end = $mo_online[9]->vote;
+        $mo =  DB::select("SELECT
+	name,
+	pc_vote,
+	wechat_vote,
+	online_score,
+	student_score,
+	teacher_score,
+	student_vote,
+	teacher_vote,
+	(
+		online_score + student_score + teacher_score
+	) AS total_score
+FROM
+	(
+		SELECT
+			name,
+			pc_vote,
+			wechat_vote,
+			student_vote,
+			teacher_vote,
+			(
+				@score := CASE
+				WHEN a.vote >= $mo_first THEN
+					20
+				ELSE
+					CASE
+				WHEN a.vote < $mo_end THEN
+					16
+				ELSE
+					18
+				END
+				END
+			) AS online_score,
+			(student_vote / 34 * 30) AS student_score,
+			(teacher_vote / 14 * 50) AS teacher_score
+		FROM
+			(
+				SELECT
+					name,
+					(pc_vote + wechat_vote) AS vote,
+					pc_vote,
+					wechat_vote,
+					student_vote,
+					teacher_vote
+				FROM
+					candidate
+				where type = '1'
+				ORDER BY
+					vote DESC
+			) a,
+			(SELECT(@score := 0)) AS b
+	) c");
+        $yo_online = DB::select("select (pc_vote + wechat_vote) AS vote from candidate
+				where type = '2'
+				ORDER BY
+					vote DESC limit 10");
+        $yo_first = $mo_online[2]->vote;
+        $yo_end = $mo_online[9]->vote;
+        $yo =  DB::select("SELECT
+	name,
+	pc_vote,
+	wechat_vote,
+	online_score,
+	student_score,
+	teacher_score,
+	student_vote,
+	teacher_vote,
+	(
+		online_score + student_score + teacher_score
+	) AS total_score
+FROM
+	(
+		SELECT
+			name,
+			pc_vote,
+			wechat_vote,
+			student_vote,
+			teacher_vote,
+			(
+				@score := CASE
+				WHEN a.vote >= $mo_first THEN
+					20
+				ELSE
+					CASE
+				WHEN a.vote < $mo_end THEN
+					16
+				ELSE
+					18
+				END
+				END
+			) AS online_score,
+			(student_vote / 34 * 30) AS student_score,
+			(teacher_vote / 14 * 50) AS teacher_score
+		FROM
+			(
+				SELECT
+					name,
+					(pc_vote + wechat_vote) AS vote,
+					pc_vote,
+					wechat_vote,
+					student_vote,
+					teacher_vote
+				FROM
+					candidate
+				where type = '2'
+				ORDER BY
+					vote DESC
+			) a,
+			(SELECT(@score := 0)) AS b
+	) c");
+        return view('rank')->with('mo', $mo)->with('yo', $yo);
+    }
+
+    //教师详细
     public function detail(Request $request) {
         $id = $request->id;
         $data = Candidate::find($id);

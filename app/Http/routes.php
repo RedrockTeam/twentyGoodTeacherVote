@@ -18,6 +18,7 @@ Route::group(['prefix' => ''], function() {
     Route::get('detail', ['as' => 'detail', 'uses' => 'IndexController@detail']); //候选人详情
     Route::get('votePage', ['as' => 'vote', 'uses' => 'IndexController@vote']); //投票
     Route::get('talk', ['as' => 'talk', 'uses' => 'IndexController@talk']); //投票
+    Route::get('rank', ['as' => 'rank', 'uses' => 'IndexController@rank']); //投票
     Route::get('logout', ['as' => 'logout', 'uses' => 'IndexController@logout']); //登出
 
     Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']); //登录
