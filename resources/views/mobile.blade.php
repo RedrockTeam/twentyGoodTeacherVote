@@ -26,7 +26,7 @@
             padding-left: 0;
             padding-right: 0; }
         .container .title {
-            background: url("../images/title.png") repeat-x;
+            background: url("../img/title.png") repeat-x;
             background-color: #fd687a;
             background-position: 0 90%; }
         .container .title h3 {
@@ -178,7 +178,7 @@
             font-size: 0.8em;
             color: #6c6c6c; }
         .container .troopes_container .voted {
-            background: url("../images/voted.png") no-repeat;
+            background: url("../img/voted.png") no-repeat;
             background-position: 100% 0; }
         .container footer {
             background-color: #e8e8e8; }
@@ -223,7 +223,7 @@
             padding-left: 2em;
             padding-top: 1em;
             padding-bottom: 2.3em;
-            background: url("../images/shadown.png") no-repeat;
+            background: url("../img/shadown.png") no-repeat;
             bottom: 50%;
             width: 4%;
             right: 0;
@@ -293,41 +293,36 @@
         <h3>十佳师德标兵 十佳青年教师</h3>
     </nav>
     <header class="nav logo">
-        <div class="img_wrapper"><img src="images/banner.jpg" alt="wrapper"/></div>
+        <div class="img_wrapper"><img src="img/banner.jpg" alt="wrapper"/></div>
     </header>
     <section class="line"></section>
     <section class="rules">
         <h2>投票规则</h2>
         <ul>
             <li>1. 每个账号账号每天可在网站或“重邮小帮手”微信公众号上分别为十佳师德标兵和十佳青年教师各投一次票，每次投票投给7-10位候选人，该次投票才有效，否则投票无效。</li>
-            <li>2. 投票时间：2015年11月23日00时00分01秒—2015年11月27日23时59分59秒。</li>
+            <li>2. 投票时间：2015年11月23日9:00 - 2015年11月29日21:00。</li>
         </ul>
     </section>
     <section class="troopes_container">
-        <!-- foreach -->
+@foreach($morality as $value)
         <section class="troopes" data-vertification="true" data-troope="1233">
             <div class="statement">
                 <div class="head">
-                    <img class="lazy" src="http://redrock.cqupt.edu.cn/twentyGoodTeacherVote/public/img/xbs.png">
+                    <img class="lazy" src="{{$value->avatar}}">
                 </div>
                 <div class="troope_info">
-                    <h3>王洋辉</h3>
-                    <p>这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述</p>
+                    <h3>{{$value->name}}</h3>
+                    <p>{{$value->introduce}}</p>
                 </div>
             </div>
             <div class="panel">
                 <div class="heart">
-                    <a class="vote"><img class="heartImg" src="images/broken_heart.png" alt="heart"/></a>
-                    <span class="tickets">123票</span>
+                    <a class="vote"><img class="heartImg" src="{{asset('img/broken_heart.png')}}" alt="heart"/></a>
+                    <span class="tickets">{{$value->wechat_vote}}票</span>
                 </div>
-                <!--<a class="heart" href="<?=$value['roo_detail_href']?>" style="white-space: nowrap;">-->
-                <!--<span><img class="lazy" data-original="./images/troope.png" alt="Troope"/></span>-->
-                <!--<span>队伍详情</span>-->
-                <!--</a>-->
             </div>
         </section>
-
-        <!-- end foreach -->
+@endforeach
     </section>
 
     <footer>
@@ -357,9 +352,9 @@
                     return false;
                 }
                 if ( $self.hasClass('selected') ) {
-                    $self.attr('src', 'images/broken_heart.png').removeClass('selected');
+                    $self.attr('src', 'img/broken_heart.png').removeClass('selected');
                 } else {
-                    $self.attr('src', 'images/heart.png').addClass('selected');
+                    $self.attr('src', 'img/heart.png').addClass('selected');
                 }
             })
             .on('click', '.sendButton', function () {

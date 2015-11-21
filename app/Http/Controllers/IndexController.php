@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Ad;
 use App\Model\Candidate;
+use App\Model\Nominate;
 use App\Model\UserVote;
 use App\User;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class IndexController extends Controller {
 
     //提名页面
     public function norm() {
+        Nominate::join('candidate', 'nominate.candidate_id')
         return view('norm');
     }
 
@@ -234,8 +236,43 @@ FROM
         Auth::logout();
         return redirect(route('index'));
     }
+
+    public function mmo(){
+        $morality = Candidate::where('type', '1')->where('status', '1')->get();
+        if(!Auth::check()) {
+            return view('mobile')->with('morality', $morality)->with('morality_vote', '');
+        }
+        $user = Auth::user();
+        $morality_voted = UserVote::where('user_id', '=', $user->id)
+            ->where('type', '=', '1')
+            ->where('created_at', '=', date('Y-m-d', time()))
+            ->where('candidate_type', '=', '1')
+            ->lists('candidate_id')
+            ->toArray();
+        foreach($morality as $value) {
+            if(in_array($value->id, $morality_voted)){
+                $value->vote = 1;
+                $morality_voted_peo[] = $value->id;
+            } else {
+                $value->vote = 0;
+            }
+        }
+        if(!isset($morality_voted_peo))  {
+            $morality_voted_peo = "";
+        } else {
+            $morality_voted_peo = json_encode($morality_voted_peo);
+        }
+        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo);
+    }
+
+
+
+
+
+
+
     /**
-     * 通过post方式获取数据, 未测试233
+     * 通过post方式获取数据
      * @param string $url
      * @param array $data
      * @return array|mixed

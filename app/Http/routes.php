@@ -18,8 +18,10 @@ Route::group(['prefix' => ''], function() {
     Route::get('detail', ['as' => 'detail', 'uses' => 'IndexController@detail']); //候选人详情
     Route::get('votePage', ['as' => 'vote', 'uses' => 'IndexController@vote']); //投票
     Route::get('talk', ['as' => 'talk', 'uses' => 'IndexController@talk']); //投票
-    Route::get('rank', ['as' => 'rank', 'uses' => 'IndexController@rank']); //投票
+    Route::get('rank', ['as' => 'rank', 'uses' => 'IndexController@rank']); //list
     Route::get('logout', ['as' => 'logout', 'uses' => 'IndexController@logout']); //登出
+    Route::get('mobilemo', ['as' => 'mobileindex', 'uses' => 'IndexController@mmo']); //移动端mo
+    Route::get('mobileyo', ['as' => 'mobileindex', 'uses' => 'IndexController@myo']); //移动端mo
 
     Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']); //登录
     Route::post('nominate', ['as' => 'nominate', 'uses' => 'NominateController@candidate']); //提名方法
