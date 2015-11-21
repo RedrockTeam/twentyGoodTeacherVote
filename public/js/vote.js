@@ -72,30 +72,30 @@
             display:'none'
         })
     });
-
+    //投票动画
     var $vote = $('.vote_v');
-    $vote.on('mouseenter',function(){
-        if($(this).next().prop('checked')||$(this).parents('form').data('voted')){
-            return false;
-        }
-        $(this).css({
-//            width:'30px',
-//            height:'30px',
-            fontSize:'30px'
-//            right:'0'
-        });
-    });
-    $vote.on('mouseleave',function(){
-        if($(this).next().prop('checked')||$(this).parents('form').data('voted')){
-            return false;
-        }
-        $(this).css({
-//            width:'20px',
-//            height:'20px',
-            fontSize:'20px'
-//            right:'5px'
-        });
-    });
+//    $vote.on('mouseenter',function(){
+//        if($(this).next().prop('checked')||$(this).parents('form').data('voted')){
+//            return false;
+//        }
+//        $(this).css({
+////            width:'30px',
+////            height:'30px',
+//            fontSize:'30px'
+////            right:'0'
+//        });
+//    });
+//    $vote.on('mouseleave',function(){
+//        if($(this).next().prop('checked')||$(this).parents('form').data('voted')){
+//            return false;
+//        }
+//        $(this).css({
+////            width:'20px',
+////            height:'20px',
+//            fontSize:'20px'
+////            right:'5px'
+//        });
+//    });
     $vote.on('click',function(){
         var _$vote = $(this),
             _$check = _$vote.next();
@@ -107,7 +107,8 @@
 //                borderWidth:'2px',
 //                right:'0px'
 //                lineHeight:'34px',
-                color:'#c3a1a7'
+                color:'#c3a1a7',
+                fontSize:'24px'
             }).html('&#xe651;');
             _$check.prop('checked',false);
         }
@@ -118,7 +119,8 @@
 //                height:'30px',
 //                right:'2px'
 //                lineHeight:'38px',
-                color:'#ff9125'
+                color:'#ff9125',
+                fontSize:'30px'
             }).html('&#xe660;');
             _$check.prop('checked',true);
         }
