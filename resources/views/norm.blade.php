@@ -46,10 +46,10 @@
             @if(!$errors->info->isEmpty())
             <!-- 提交成功 -->
             <div class="norm_suc">
-                <h3 class="norm_h norm_suc_h">提交信息</h3>
+                <h3 class="norm_suc_h">提交信息</h3>
                 <p class="norm_suc_p">{{$errors->info->all()[0]}}
                 </p>
-                <button class="norm_sub norm_suc_sub">确定</button>
+                <button class="norm_suc_sub">确定</button>
             </div>
             @endif
         </div>

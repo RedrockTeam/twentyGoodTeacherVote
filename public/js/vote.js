@@ -60,6 +60,19 @@
     });
 //    switch_page($('.vote_nav_li'));
     //投票部分
+    //弹框提示
+    function message(title,p,sub){
+        $('.norm_suc_h').html(title);
+        $('.norm_suc_p').html(p);
+//        $('.norm_suc_sub').html(sub);
+        $('.norm_suc').css({display:'block'});
+    }
+    $('.norm_suc_sub').click(function(){
+        $('.norm_suc').css({
+            display:'none'
+        })
+    });
+
     var $vote = $('.vote_v');
     $vote.on('mouseenter',function(){
         if($(this).next().prop('checked')||$(this).parents('form').data('voted')){
@@ -131,7 +144,8 @@
         });
         var _len = _checked.length;
         if(_len === 0){
-            alert('请先选择候选人再投票');
+//            alert('请先选择候选人再投票');
+            message('出错啦','请先选择候选人再投票');
             return false;
         }
         if(_len>6&&_len<11){
@@ -174,7 +188,8 @@
                         _info = _res.info;
                     if(_status === 403){
                         _$sub.removeClass('vote_subed').val('投票');
-                        alert(_info);
+//                        alert(_info);
+                        message('出错啦',_info);
                     }else{
                         _$form.data('voted',_checked);
                         _$sub.val('已投票');
@@ -193,14 +208,16 @@
                             }
 
                         });
-                        alert('投票成功！');
+//                        alert('投票成功！');
+                        message('投票成功！','您已经成功投票');
                     }
                     _vote_b = true;
                     voting = false;
                 },
                 error:function(){
                     _$sub.removeClass('vote_subed').val('投票');
-                    alert('投票失败');
+//                    alert('投票失败');
+                    message('出错啦','请检查您的网络再重试');
                     _vote_b = true;
                     voting = false;
                 }
@@ -209,7 +226,8 @@
 //            _checked = JSON.stringify(_checked);
 //            console.log(typeof _obj,_obj,JSON.parse(_obj));
         }else{
-            alert('每次只能投给7-10位候选人哦');
+//            alert('每次只能投给7-10位候选人哦');
+            message('出错啦','每次只能投给7-10位候选人哦');
             return false;
         }
 //        console.log(this);

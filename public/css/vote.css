@@ -289,3 +289,6 @@
   display: block;
   margin-left: 0;
 }
+.norm_suc {
+  display: none;
+}

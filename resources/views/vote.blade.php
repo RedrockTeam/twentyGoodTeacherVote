@@ -75,6 +75,11 @@
                 @endif
             </form>
         </div>
+        <div class="norm_suc">
+            <h3 class="norm_suc_h"></h3>
+            <p class="norm_suc_p"></p>
+            <button class="norm_suc_sub">确定</button>
+        </div>
     </div>
 @stop
 
