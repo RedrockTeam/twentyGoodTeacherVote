@@ -231,7 +231,7 @@
 .vote_face{
 //  display: block;
   width: 179px;
-  height: 180px;
+  height: 252px;
   margin-bottom: 17px;
   overflow: hidden;
   border: 1px solid #b0061e;
@@ -242,6 +242,20 @@
   &:hover .vote_face_curain{
     display: block;
   }
+}
+.vote_face_num{
+  width: 51px;
+  height: 29px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 14px;
+  text-align: center;
+  line-height: 29px;
+  background-color: #5c5650;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
 }
 .vote_face_curain{
   width: 100%;
@@ -254,20 +268,22 @@
 }
 .vote_face_detail{
   display: block;
-  width: 123px;
-  height: 31px;
+  width: 124px;
+  height: 30px;
   background-color: #ff8f21;
   border: 1px solid #f78412;
   text-align: center;
-  line-height: 31px;
+  line-height: 30px;
   font-size: 16px;
   color: #fff;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -62px;
+//  right: 0;
+//  bottom: 0;
+//  margin: auto;
 }
 .vote_name{
   position: relative;
