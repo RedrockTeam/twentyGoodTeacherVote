@@ -55,42 +55,26 @@
         </div>
         <div class="normed shadow">
             <div class="normed_title">
-                <h3 class="normed_title_h">我的提名<span>（总计3人）</span></h3>
+                <h3 class="normed_title_h">我的提名<span>（总计{{count($candidate)}}人）</span></h3>
                 <button class="normed_title_bu">我来提名</button>
             </div>
+            @if(count($candidate) == 0)
             <div class="normed_container">
                 <h3 class="normed_container_h_null">暂无提名</h3>
             </div>
-            <div class="normed_container">
-                <h5 class="normed_container_h">我提名<span>红岩网校工作站</span>的<span>咬碎</span>老师。</h5>
-                <h5 class="normed_container_h">提名理由：</h5>
-                <p class="normed_container_p">和刚考过了空间高考结过婚了看过很快了喊口号和刚考过了空间高考结过婚了看过很快了喊口号和刚考过了空间高考结过婚了看过很快了喊口号和刚考过了空间。</p>
-                <div class="normed_container_f">
-                    <h5 class="normed_container_h normed_container_h_float normed_container_h_float_1">提名人：<span>和刚考</span></h5>
-                    <h5 class="normed_container_h normed_container_h_float">所在单位（班级或学院）：<span>重庆国际半导体学院</span></h5>
-                </div>
-
-            </div>
-            <div class="normed_container">
-                <h5 class="normed_container_h">我提名<span>红岩网校工作站</span>的<span>咬碎</span>老师。</h5>
-                <h5 class="normed_container_h">提名理由：</h5>
-                <p class="normed_container_p">和刚考过了空间高考结过婚了看过很快了喊口号和刚考过了空间高考结过婚了看过很快了喊口号和刚考过了空间高考结过婚了看过很快了喊口号和刚考过了空间。</p>
-                <div class="normed_container_f">
-                    <h5 class="normed_container_h normed_container_h_float normed_container_h_float_1">提名人：<span>和刚考</span></h5>
-                    <h5 class="normed_container_h normed_container_h_float">所在单位（班级或学院）：<span>重庆国际半导体学院</span></h5>
-                </div>
-
-            </div>
-            <div class="normed_container">
-                <h5 class="normed_container_h">我提名<span>红岩网校工作站</span>的<span>咬碎</span>老师。</h5>
-                <h5 class="normed_container_h">提名理由：</h5>
-                <p class="normed_container_p">和刚考过了空间高考结过婚了看过很快了喊口号和刚考过了空间高考结过婚了看过很快了喊口号和刚考过了空间高考结过婚了看过很快了喊口号和刚考过了空间。</p>
-                <div class="normed_container_f">
-                    <h5 class="normed_container_h normed_container_h_float normed_container_h_float_1">提名人：<span>和刚考</span></h5>
-                    <h5 class="normed_container_h normed_container_h_float">所在单位（班级或学院）：<span>重庆国际半导体学院</span></h5>
-                </div>
-
-            </div>
+            @else
+                @foreach($candidate as $value)
+                    <div class="normed_container">
+                        <h5 class="normed_container_h">我提名<span>{{$value->c_unit}}</span>的<span>{{$value->c_name}}</span>老师。</h5>
+                        <h5 class="normed_container_h">提名理由：</h5>
+                        <p class="normed_container_p">{{$value->introduce}}</p>
+                        <div class="normed_container_f">
+                            <h5 class="normed_container_h normed_container_h_float normed_container_h_float_1">提名人：<span>{{$value->n_name}}</span></h5>
+                            <h5 class="normed_container_h normed_container_h_float">所在单位（班级或学院）：<span>{{$value->n_unit}}</span></h5>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
         </div>
 
  @stop

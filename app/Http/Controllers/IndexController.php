@@ -28,8 +28,13 @@ class IndexController extends Controller {
 
     //提名页面
     public function norm() {
-        Nominate::join('candidate', 'nominate.candidate_id')
-        return view('norm');
+        if(Auth::check()) {
+            $user = Auth::user();
+            $candidate = Nominate::where('usernum', $user['id'])->join('candidate', 'nominate.candidate_id', '=', 'candidate.id')->select('nominate.unit as n_unit', 'nominate.username as n_name', 'candidate.name as c_name', 'candidate.unit as c_unit', 'introduce')->get();
+        } else {
+            $candidate = null;
+        }
+        return view('norm')->with('candidate', $candidate);
     }
 
     //排行榜
