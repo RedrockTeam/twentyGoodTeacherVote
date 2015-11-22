@@ -277,7 +277,7 @@ FROM
     public function myo(){
         $openid =  Input::only('openid');
         $this->weixinLogin($openid['openid']);
-        $morality = Candidate::where('type', '2')->where('status', '2')->get();
+        $morality = Candidate::where('type', '2')->where('status', '1')->get();
         if(!Auth::check()) {
             return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2);
         }
