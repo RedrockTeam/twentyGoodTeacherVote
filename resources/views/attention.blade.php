@@ -26,7 +26,7 @@
 </head>
 <body>
     <h1>您还未绑定小帮手</h1>
-    <h2>#1 如果您是教职工用户,请先注册账号:<a href="http://redrock.cqupt.edu.cn/RedCenter/index.php/Home/TeacherRegister/index.html">注册地址</a>,如果已经注册账号可直接绑定账号:<a href="http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Bind/Bind/bind/openid/{{ $openid or 'asdf'}}/token/gh_68f0a1ffc303.html?openid={{urlencode('http://redrock.cqupt.edu.cn/shuangshijia/public/mobilemo?openid='.$openid)}}">绑定地址</a></h2>
+    <h2>#1 如果您是教职工用户,请先注册账号:<a href="http://redrock.cqupt.edu.cn/RedCenter/index.php/Home/TeacherRegister/index.html">注册地址</a>,如果已经注册账号可直接绑定账号:<a href="http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Bind/Bind/bind/openid/{{ $openid or 'asdf'}}/token/gh_68f0a1ffc303.html&redirect={{urlencode('http://redrock.cqupt.edu.cn/shuangshijia/public/mobilemo?openid='.$openid)}}">绑定地址</a></h2>
     <h2>#2 如果您是学生用户,可直接进行账号绑定:<a href="http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Bind/Bind/bind/openid/{{ $openid or 'asdf'}}/token/gh_68f0a1ffc303.html&redirect={{urlencode('http://redrock.cqupt.edu.cn/shuangshijia/public/mobilemo?openid='.$openid)}}">绑定地址</a></h2>
 </body>
 </html>
