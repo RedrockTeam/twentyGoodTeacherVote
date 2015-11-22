@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-url="{{route('wechatvote')}}" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}"><!--data-isvoted=YES|NO -->
+<html lang="zh-CN" data-url="{{route('wechatvote')}}" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}" data-allow=""><!--data-isvoted=YES|NO -->
 <head>
     <meta charset="UTF-8">
     <meta content="telephone=no" name="format-detection" />
@@ -350,7 +350,7 @@
 <script src="https://a.alipayobjects.com/??amui/zepto/1.1.3/zepto.js,static/fastclick/1.0.6/fastclick.min.js"></script>
 <script>FastClick.attach(document.body);</script>
 <script>
-    var ALLOW = !($('html').attr('data-isvoted') == 'NO'); //没投过的就允许
+    var ALLOW = $('html').attr('data-isvoted') == 'NO'; //没投过的就允许
     $(document)
             .on('click', '.troope_info', function (e) {
                 e.stopPropagation();
