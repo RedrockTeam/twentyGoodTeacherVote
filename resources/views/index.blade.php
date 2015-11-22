@@ -40,7 +40,7 @@
                 </div>
                 <div class="log shadow">
                     @if(!Auth::check())
-                        <h3 class="log_title">重邮通行证</h3>
+                        <h3 class="log_title">账号登录(教职工请先注册)</h3>
                         <!--登录前-->
                         <div class="log_be">
 	                        @if(!$errors->login->isEmpty())
@@ -50,17 +50,17 @@
 	                        <form action="{{route('login')}}" method="POST" id="log_form">
 	                        	<!-- 报错 -->
 	                        	<span class="log_err"></span>
-	                            <label>*学号（学生）/一卡通（教师）
+	                            <label>*学号（学生）/一卡通（教职工）
 	                                <input id="user" class="log_info" type="text" value="{{old('user')}}" name="user" placeholder="用户名"/>
 	                            </label>
-	                            <label>*学生密码身份证后六位/教师密码为注册密码
+	                            <label>*学生密码身份证后六位/教职工密码为注册密码
 	                                <input id="password" class="log_info" type="password" placeholder="密   码" name="password"/>
 	                            </label>
 	                            {{--csrf--}}
 	                            {{csrf_field()}}
 	                            <input class="log_sub" type="submit" value="登录"/>
 	                        </form>
-	                        <a class="log_teacher" target="_blank" href="http://redrock.cqupt.edu.cn/RedCenter/index.php/Home/TeacherRegister/index.html">教师注册入口</a>
+	                        <a class="log_teacher" target="_blank" href="http://redrock.cqupt.edu.cn/RedCenter/index.php/Home/TeacherRegister/index.html">教职工注册入口</a>
 	                        {{--<a class="log_forget" href="javascript:alert('请联系红岩网校工作站~')">忘记密码</a>--}}
 	                    </div>
                     @else
