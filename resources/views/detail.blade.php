@@ -51,7 +51,7 @@
             </div>
             <div class="detail_group">
                 <span class="detail_key">最&nbsp;&nbsp;&nbsp;高&nbsp;&nbsp;&nbsp;学&nbsp;&nbsp;&nbsp;历 :</span>
-                <span class="detail_val">{{$data->heighest_level}}</span>
+                <span class="detail_val">{{$data->highest_level}}</span>
             </div>
             <div class="detail_group">
                 <span class="detail_key">所&nbsp;&nbsp;&nbsp;在&nbsp;&nbsp;&nbsp;单&nbsp;&nbsp;&nbsp;位 :</span>
