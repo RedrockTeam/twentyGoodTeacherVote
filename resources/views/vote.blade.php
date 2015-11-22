@@ -26,6 +26,8 @@
         </div>
         <div id="nor" class="vote_container vote_container_hide">
             <!--voted已投票-->
+            <h3 class="vote_h">重庆邮电大学第二届“十佳师德标兵”候选人</h3>
+            <p class="vote_p">（按姓氏笔画排序）</p>
             <form id="vote_form_nor" class="vote_form" action="#" method="GET" data-voted="{{$morality_vote}}">
                 <ul class="vote_peo_list">
                         @foreach($morality as $key => $value)
@@ -52,6 +54,8 @@
 
         </div>
         <div id="yth" class="vote_container vote_container_hide">
+        <h3 class="vote_h">重庆邮电大学第二届“十佳青年教师”候选人</h3>
+            <p class="vote_p">（按姓氏笔画排序）</p>
             <form id="vote_form_yth" class="vote_form" action="#" method="GET" data-voted="{{$youngth_vote}}">
                 <ul class="vote_peo_list">
                     @foreach($youngth as $key => $value)
