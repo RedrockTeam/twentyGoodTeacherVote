@@ -49,7 +49,7 @@
                 <div class="col-md-1">
                     <form action="{{route('admin/editphoto')}}" method="post" enctype="multipart/form-data">
                         <input type="file" class="form-control"  name="photo">
-                        <input type="hidden" value="{{$value->id}}">
+                        <input type="hidden" value="{{$value->id}}" name="id">
                         {{csrf_field()}}
                         <button class="btn btn-xs btn-warning">修改头像</button>
                     </form>
