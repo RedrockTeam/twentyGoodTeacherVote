@@ -351,6 +351,7 @@
 <script>FastClick.attach(document.body);</script>
 <script>
     var ALLOW = !($('html').attr('data-isvoted') == 'NO'); //没投过的就允许
+    console.log(ALLOW);
     $(document)
             .on('click', '.troope_info', function (e) {
                 e.stopPropagation();
