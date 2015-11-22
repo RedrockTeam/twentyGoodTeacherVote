@@ -246,9 +246,8 @@ FROM
     public function mmo(){
         $openid =  Input::only('openid');
         $re = $this->weixinLogin($openid['openid']);
-
         $morality = Candidate::where('type', '1')->where('status', '1')->get();
-        if(!Auth::check() || !$re) {
+        if(!$re) {
             return view('attention')->with('openid', $openid['openid']);
 //            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1);
         }
@@ -280,7 +279,7 @@ FROM
         $openid =  Input::only('openid');
         $re = $this->weixinLogin($openid['openid']);
         $morality = Candidate::where('type', '2')->where('status', '1')->get();
-        if(!Auth::check() || $re) {
+        if(!$re) {
             return view('attention')->with('openid', $openid['openid']);;
 //            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2);
         }
@@ -312,6 +311,7 @@ FROM
             $user = User::firstOrCreate(['user_id' => $result->stuId]);
             Auth::loginUsingId($user->id);
             Session::put('uid', $result->stuId);
+            return true;
         }
         return false;
     }
