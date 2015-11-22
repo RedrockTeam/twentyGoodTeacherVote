@@ -18,7 +18,7 @@
             <a href="#nor"><li class="vote_nav_li">十佳师德标兵</li></a>
             <a href="#yth"><li class="vote_nav_li">十佳青年教师</li></a>
         </ul>
-        <div id="rule" class="vote_container">
+        <div id="rule" class="vote_container" style="height:450px">
             <h3 class="vote_rule_title">投票规则</h3>
             <p class="vote_rule_p">1.每个账号账号每天可在网站或“重邮小帮手”微信公众号上分别为十佳师德标兵和十佳青年教师各投一次票，每次投票投给7-10位候选人，该次投票才有效，否则投票无效。</p>
             <p class="vote_rule_p">2.投票时间：2015年11月23日9:00 - 2015年11月29日21:00。</p>
@@ -35,7 +35,7 @@
                                 <li class="vote_peo_li">
                             @endif
                             <div class="vote_people @if($key%4 == 3 || $key == (count($morality) - 1)) vote_people_last @endif">
-                                <div class="vote_face"><span class="vote_face_num">153票</span><span class="vote_face_curain"><a class="vote_face_detail" href="{{route('detail', ['id' => $value->id])}}#nor">查看详情</a></span><img src="{{asset("upload").'/'.$value->avatar}}" alt="face"/></div>
+                                <div class="vote_face"><span class="vote_face_num">{{$value->pc_vote}}票</span><span class="vote_face_curain"><a class="vote_face_detail" href="{{route('detail', ['id' => $value->id])}}#nor">查看详情</a></span><img src="{{asset("upload").'/'.$value->avatar}}" alt="face"/></div>
                                 <p class="vote_name">{{$value->name}}<span class="vote_v heart">&#xe651;</span><input class="vote_v_in" type="checkbox" name="nor" value="{{$value->id}}"/></p>
                                 <p class="vote_part">{{$value->unit}}</p>
                             </div>

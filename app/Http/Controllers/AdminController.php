@@ -138,10 +138,12 @@ class AdminController extends Controller {
             $data['file'] = $filename;
         }
         if($data['id'] == 0) {
+            unset($data['photo']);
             Ad::create($data);
 
         } else {
             unset($data['_token']);
+            unset($data['photo']);
             Ad::where('id', $data['id'])->update($data);
         }
         return redirect()->back()->withErrors('成功', 'info');
@@ -161,5 +163,16 @@ class AdminController extends Controller {
         Candidate::create($data);
         return redirect()->back()->withErrors('成功', 'info');
     }
-
+    public function editphoto(Request $request) {
+        $data = Input::all();
+        if (!$request->hasFile('photo')) {
+            return redirect()->back()->withErrors('图片不存在', 'info');
+        }
+        $photo = $request->file('photo');
+        $filename = time().'.jpg';
+        $photo->move(public_path('upload'), $filename);
+        $avatar = $filename;
+        Candidate::where('id', $data['id'])->update(['avatar' => $avatar]);
+        return redirect()->back()->withErrors('成功', 'info');
+    }
 }

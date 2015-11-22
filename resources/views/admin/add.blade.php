@@ -57,6 +57,10 @@
                         <input type="text" class="form-control"  placeholder="" name="level">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputPassword1">最   高   学   历 </label>
+                        <input type="text" class="form-control"  placeholder="" name="highest_level">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputPassword1">最   高   学   位 </label>
                         <input type="text" class="form-control"  placeholder="" name="degree">
                     </div>
