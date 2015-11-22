@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-url="" data-type="" data-isvoted=""><!--data-isvoted=YES|NO -->
+<html lang="zh-CN" data-url="{{route('wechatvote')}}" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}"><!--data-isvoted=YES|NO -->
 <head>
     <meta charset="UTF-8">
     <meta content="telephone=no" name="format-detection" />
@@ -305,7 +305,7 @@
     </section>
     <section class="troopes_container">
 @foreach($morality as $value)
-        <section class="troopes" data-vertification="true" data-troope="1233">
+        <section class="troopes" data-vertification="true" data-troope="{{$value->id}}">
             <div class="statement">
                 <div class="head">
                     <img class="lazy" src="{{$value->avatar}}">
@@ -375,7 +375,8 @@
                     url: url,
                     data: {
                         data: selectedArr,
-                        type: $('html').attr('data-type')
+                        type: $('html').attr('data-type'),
+                        _token: $('html').attr('data-token')
                     },
                     success: function (res) {
                         if(res.status == 200) {

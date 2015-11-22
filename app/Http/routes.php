@@ -26,6 +26,7 @@ Route::group(['prefix' => ''], function() {
     Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']); //登录
     Route::post('nominate', ['as' => 'nominate', 'uses' => 'NominateController@candidate']); //提名方法
     Route::post('vote', ['as' => 'voteMethod', 'uses' => 'VoteController@update']);
+    Route::post('wechatvote', ['as' => 'wechatvote', 'uses' => 'VoteController@weixinUpdate']);
 
 
     //RESTful test

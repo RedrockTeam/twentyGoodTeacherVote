@@ -242,10 +242,11 @@ FROM
         return redirect(route('index'));
     }
 
+    //移动端师德页面
     public function mmo(){
         $morality = Candidate::where('type', '1')->where('status', '1')->get();
         if(!Auth::check()) {
-            return view('mobile')->with('morality', $morality)->with('morality_vote', '');
+            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1);
         }
         $user = Auth::user();
         $morality_voted = UserVote::where('user_id', '=', $user->id)
@@ -267,13 +268,74 @@ FROM
         } else {
             $morality_voted_peo = json_encode($morality_voted_peo);
         }
-        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo);
+        return view('mobile')->with('morality', $morality)->with('morality_vote', 'YES')->with('type', 1);
     }
 
+    //移动端师德页面
+    public function myo(){
+        $morality = Candidate::where('type', '2')->where('status', '2')->get();
+        if(!Auth::check()) {
+            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2);
+        }
+        $user = Auth::user();
+        $morality_voted = UserVote::where('user_id', '=', $user->id)
+            ->where('type', '=', '2')
+            ->where('created_at', '=', date('Y-m-d', time()))
+            ->where('candidate_type', '=', '2')
+            ->lists('candidate_id')
+            ->toArray();
+        foreach($morality as $value) {
+            if(in_array($value->id, $morality_voted)){
+                $value->vote = 1;
+                $morality_voted_peo[] = $value->id;
+            } else {
+                $value->vote = 0;
+            }
+        }
+        if(!isset($morality_voted_peo))  {
+            $morality_voted_peo = "";
+        } else {
+            $morality_voted_peo = json_encode($morality_voted_peo);
+        }
+        return view('mobile')->with('morality', $morality)->with('morality_vote', 'YES')->with('type', 2);
+    }
+    public function weixinLogin($openid) {
+        $result = $this->bindVerify($openid);
+        if($result['status'] == 200) {
+            $user = User::firstOrCreate(['user_id' => $result['stuId']]);
+            Auth::loginUsingId($user->id);
+            Session::put('uid', $result['stuId']);
+        }
+    }
 
-
-
-
+    private function bindVerify($openid){
+        $url = "http://Hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/Api/Api/bindVerify";
+        $timestamp = time();
+        $string = "";
+        $arr = "abcdefghijklmnopqistuvwxyz0123456789ABCDEFGHIGKLMNOPQISTUVWXYZ";
+        for ($i=0; $i<16; $i++) {
+            $y = rand(0,41);
+            $string .= $arr[$y];
+        }
+        $secret = sha1(sha1($timestamp).md5($string).'redrock');
+        $post_data = array (
+            "timestamp" => $timestamp,
+            "string" => $string,
+            "secret" => $secret,
+            "openid" => $openid,
+            "token" => "gh_68f0a1ffc303",
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // post数据
+        curl_setopt($ch, CURLOPT_POST, 1);
+        // post的变量
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        return json_decode($output);
+    }
 
 
     /**
