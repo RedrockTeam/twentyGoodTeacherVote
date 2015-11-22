@@ -138,10 +138,12 @@ class AdminController extends Controller {
             $data['file'] = $filename;
         }
         if($data['id'] == 0) {
+            unset($data['photo']);
             Ad::create($data);
 
         } else {
             unset($data['_token']);
+            unset($data['photo']);
             Ad::where('id', $data['id'])->update($data);
         }
         return redirect()->back()->withErrors('成功', 'info');
