@@ -140,7 +140,7 @@
 }
 .vote_face {
   width: 179px;
-  height: 180px;
+  height: 252px;
   margin-bottom: 17px;
   overflow: hidden;
   border: 1px solid #b0061e;
@@ -151,6 +151,20 @@
 }
 .vote_face:hover .vote_face_curain {
   display: block;
+}
+.vote_face_num {
+  width: 51px;
+  height: 29px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 14px;
+  text-align: center;
+  line-height: 29px;
+  background-color: #5c5650;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 .vote_face_curain {
   width: 100%;
@@ -163,20 +177,19 @@
 }
 .vote_face_detail {
   display: block;
-  width: 123px;
-  height: 31px;
+  width: 124px;
+  height: 30px;
   background-color: #ff8f21;
   border: 1px solid #f78412;
   text-align: center;
-  line-height: 31px;
+  line-height: 30px;
   font-size: 16px;
   color: #fff;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -62px;
 }
 .vote_name {
   position: relative;
@@ -187,38 +200,23 @@
 .vote_v {
   display: block;
   float: right;
-  width: 20px;
-  height: 20px;
-  font-size: 30px;
-  line-height: 30px;
+  width: 30px;
+  height: 34px;
+  font-size: 24px;
+  line-height: 38px;
   top: 0;
   right: 5px;
   bottom: 0;
   margin: auto;
   text-align: center;
-  color: #ff9125;
+  overflow: visible;
+  color: #c3a1a7;
   text-shadow: 0 0 2px #bb2323;
   cursor: pointer;
-  -moz-border-radius: 50px;
-  /* Gecko browsers */
-  -webkit-border-radius: 50px;
-  /* Webkit browsers */
-  border-radius: 50px;
-  /* W3C syntax */
-  border: 2px solid #c3a1a7;
   position: absolute;
-  transition: all 0.2s ease 0s;
-  -moz-transition: all 0.2s ease 0s;
-  /* Firefox 4 */
-  -webkit-transition: all 0.2s ease 0s;
-  /* Safari 和 Chrome */
-  -o-transition: all 0.2s ease 0s;
-  /* Opera */
 }
 .vote_ved {
   color: #fb6a6e;
-  width: 30px;
-  height: 30px;
   border-width: 0 ;
 }
 .vote_v_in {
@@ -297,4 +295,7 @@
 .detail_val_blo {
   display: block;
   margin-left: 0;
+}
+.norm_suc {
+  display: none;
 }

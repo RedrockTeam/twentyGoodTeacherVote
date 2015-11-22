@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Model\Ad;
 use App\Model\Candidate;
+use App\Model\Nominate;
 use App\Model\UserVote;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Ixudra\Curl\Facades\Curl;
@@ -20,17 +22,143 @@ class IndexController extends Controller {
 
     //首页
     public function index() {
-        $ad = Ad::orderBy('id', 'desc')->get();
-
+        $ad = Ad::orderBy('id', 'desc')->limit(10)->get();
         return view('index')->with('ad', $ad);
     }
 
     //提名页面
     public function norm() {
-        return view('norm');
+        if(Auth::check()) {
+            $user = Auth::user();
+            $candidate = Nominate::where('usernum', $user['id'])->join('candidate', 'nominate.candidate_id', '=', 'candidate.id')->select('nominate.unit as n_unit', 'nominate.username as n_name', 'candidate.name as c_name', 'candidate.unit as c_unit', 'introduce')->get();
+        } else {
+            $candidate = null;
+        }
+        return view('norm')->with('candidate', $candidate);
     }
 
-    //
+    //排行榜
+    public function rank() {
+        $mo_online = DB::select("select (pc_vote + wechat_vote) AS vote from candidate
+				where type = '1'
+				ORDER BY
+					vote DESC limit 10");
+        $mo_first = $mo_online[2]->vote;
+        $mo_end = $mo_online[9]->vote;
+        $mo =  DB::select("SELECT
+	name,
+	pc_vote,
+	wechat_vote,
+	online_score,
+	student_score,
+	teacher_score,
+	student_vote,
+	teacher_vote,
+	(
+		online_score + student_score + teacher_score
+	) AS total_score
+FROM
+	(
+		SELECT
+			name,
+			pc_vote,
+			wechat_vote,
+			student_vote,
+			teacher_vote,
+			(
+				@score := CASE
+				WHEN a.vote >= $mo_first THEN
+					20
+				ELSE
+					CASE
+				WHEN a.vote < $mo_end THEN
+					16
+				ELSE
+					18
+				END
+				END
+			) AS online_score,
+			(student_vote / 34 * 30) AS student_score,
+			(teacher_vote / 14 * 50) AS teacher_score
+		FROM
+			(
+				SELECT
+					name,
+					(pc_vote + wechat_vote) AS vote,
+					pc_vote,
+					wechat_vote,
+					student_vote,
+					teacher_vote
+				FROM
+					candidate
+				where type = '1'
+				ORDER BY
+					vote DESC
+			) a,
+			(SELECT(@score := 0)) AS b
+	) c");
+        $yo_online = DB::select("select (pc_vote + wechat_vote) AS vote from candidate
+				where type = '2'
+				ORDER BY
+					vote DESC limit 10");
+        $yo_first = $mo_online[2]->vote;
+        $yo_end = $mo_online[9]->vote;
+        $yo =  DB::select("SELECT
+	name,
+	pc_vote,
+	wechat_vote,
+	online_score,
+	student_score,
+	teacher_score,
+	student_vote,
+	teacher_vote,
+	(
+		online_score + student_score + teacher_score
+	) AS total_score
+FROM
+	(
+		SELECT
+			name,
+			pc_vote,
+			wechat_vote,
+			student_vote,
+			teacher_vote,
+			(
+				@score := CASE
+				WHEN a.vote >= $mo_first THEN
+					20
+				ELSE
+					CASE
+				WHEN a.vote < $mo_end THEN
+					16
+				ELSE
+					18
+				END
+				END
+			) AS online_score,
+			(student_vote / 34 * 30) AS student_score,
+			(teacher_vote / 14 * 50) AS teacher_score
+		FROM
+			(
+				SELECT
+					name,
+					(pc_vote + wechat_vote) AS vote,
+					pc_vote,
+					wechat_vote,
+					student_vote,
+					teacher_vote
+				FROM
+					candidate
+				where type = '2'
+				ORDER BY
+					vote DESC
+			) a,
+			(SELECT(@score := 0)) AS b
+	) c");
+        return view('rank')->with('mo', $mo)->with('yo', $yo);
+    }
+
+    //教师详细
     public function detail(Request $request) {
         $id = $request->id;
         $data = Candidate::find($id);
@@ -113,8 +241,43 @@ class IndexController extends Controller {
         Auth::logout();
         return redirect(route('index'));
     }
+
+    public function mmo(){
+        $morality = Candidate::where('type', '1')->where('status', '1')->get();
+        if(!Auth::check()) {
+            return view('mobile')->with('morality', $morality)->with('morality_vote', '');
+        }
+        $user = Auth::user();
+        $morality_voted = UserVote::where('user_id', '=', $user->id)
+            ->where('type', '=', '1')
+            ->where('created_at', '=', date('Y-m-d', time()))
+            ->where('candidate_type', '=', '1')
+            ->lists('candidate_id')
+            ->toArray();
+        foreach($morality as $value) {
+            if(in_array($value->id, $morality_voted)){
+                $value->vote = 1;
+                $morality_voted_peo[] = $value->id;
+            } else {
+                $value->vote = 0;
+            }
+        }
+        if(!isset($morality_voted_peo))  {
+            $morality_voted_peo = "";
+        } else {
+            $morality_voted_peo = json_encode($morality_voted_peo);
+        }
+        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo);
+    }
+
+
+
+
+
+
+
     /**
-     * 通过post方式获取数据, 未测试233
+     * 通过post方式获取数据
      * @param string $url
      * @param array $data
      * @return array|mixed

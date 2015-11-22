@@ -5,9 +5,17 @@
     <title>双十佳</title>
     @yield('css')
     <style type="text/css">
-        .bk{background: url("{{asset('img/bk.jpg')}}") no-repeat #ce1e35;}
-        .nav{background:url("{{asset('img/nav_bk.png')}}") no-repeat;}
-        .title_3{background: url("{{asset('img/title_bk.png')}}") no-repeat;}
+        .bk{background: url("img/bk.jpg") no-repeat #ce1e35;
+            background-size: 100% auto;
+        }
+        .nav{background:url("img/nav_bk.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .content{
+            background: url("img/fly.png") no-repeat;
+            background-position: -85px -50px;
+        }
+        .title_3{background: url("img/title_bk.png") no-repeat;}
     </style>
 </head>
 <body>
@@ -22,7 +30,7 @@
                 <li><a href="{{route('index')}}" data-left="60" @yield('index')>首页</a></li>
                 <li><a href="{{route('norm')}}" data-left="164" @yield('norm')>我来提名</a></li>
                 <li><a href="{{route('vote')}}" data-left="312" @yield('vote')>网络投票</a></li>
-                <li><a href="#" data-left="460">排行榜</a></li>
+                <li><a href="{{route('rank')}}" data-left="460" @yield('rank')>排行榜</a></li>
                 <div class="nav_bar"></div>
             </ul>
 
@@ -30,7 +38,7 @@
 
     </div>
     <div class="content">
-        <h1 class="title_1">第二届</h1>
+        <img class="title_1" src="{{asset('img/second.png')}}" alt="第二届"/>
         <img class="title_mor" src="{{asset('img/moral.png')}}" alt="moral"/>
         <img class="title_yth" src="{{asset('img/youngth.png')}}" alt="youngth"/>
         <h3 class="title_2">评选表彰活动专题网</h3>

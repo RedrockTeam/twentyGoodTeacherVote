@@ -33,8 +33,8 @@
                                 <li class="vote_peo_li">
                             @endif
                             <div class="vote_people @if($key%4 == 3 || $key == (count($morality) - 1)) vote_people_last @endif">
-                                <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="{{route('detail', ['id' => $value->id])}}#nor">查看详情</a></span><img src="{{asset("upload").'/'.$value->avatar}}" alt="face"/></div>
-                                <p class="vote_name">{{$value->name}}<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="{{$value->id}}"/></p>
+                                <div class="vote_face"><span class="vote_face_num">{{$value->pc_vote}}票</span><span class="vote_face_curain"><a class="vote_face_detail" href="{{route('detail', ['id' => $value->id])}}#nor">查看详情</a></span><img src="{{asset("upload").'/'.$value->avatar}}" alt="face"/></div>
+                                <p class="vote_name">{{$value->name}}<span class="vote_v heart">&#xe651;</span><input class="vote_v_in" type="checkbox" name="nor" value="{{$value->id}}"/></p>
                                 <p class="vote_part">{{$value->unit}}</p>
                             </div>
                             @if($key%4 == 3 || $key == (count($morality) - 1))
@@ -59,8 +59,8 @@
                             <li class="vote_peo_li">
                                 @endif
                                 <div class="vote_people @if($key%4 == 3 || $key == (count($youngth) - 1)) vote_people_last @endif">
-                                    <div class="vote_face"><span class="vote_face_curain"><a class="vote_face_detail" href="{{route('detail', ['id' => $value->id])}}#nor">查看详情</a></span><img src="{{asset("upload").'/'.$value->avatar}}" alt="face"/></div>
-                                    <p class="vote_name">{{$value->name}}<span class="vote_v heart"></span><input class="vote_v_in" type="checkbox" name="nor" value="{{$value->id}}"/></p>
+                                    <div class="vote_face"><span class="vote_face_num">153票</span><span class="vote_face_curain"><a class="vote_face_detail" href="{{route('detail', ['id' => $value->id])}}#nor">查看详情</a></span><img src="{{asset("upload").'/'.$value->avatar}}" alt="face"/></div>
+                                    <p class="vote_name">{{$value->name}}<span class="vote_v heart">&#xe651;</span><input class="vote_v_in" type="checkbox" name="nor" value="{{$value->id}}"/></p>
                                     <p class="vote_part">{{$value->unit}}</p>
                                 </div>
                                 @if($key%4 == 3 || $key == (count($youngth) - 1))
@@ -74,6 +74,11 @@
                     暂无候选人
                 @endif
             </form>
+        </div>
+        <div class="norm_suc">
+            <h3 class="norm_suc_h"></h3>
+            <p class="norm_suc_p"></p>
+            <button class="norm_suc_sub">确定</button>
         </div>
     </div>
 @stop

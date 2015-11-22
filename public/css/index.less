@@ -76,11 +76,13 @@ body{
   margin: 0;
 }
 .bk{
-  max-width: 1440px;
-  *width: 1440px;
+  max-width: 1440px\9;
+ * width: 1440px;
+//  *width: 1440px;
 //  background-color: #ce1e35;
   .center();
 //  background: url("../img/bk.jpg") no-repeat;
+//  background-size: 100%;
 }
 
 //nav start
@@ -159,16 +161,16 @@ body{
 }
 //title start
 .title_1{
-  .font_family('STXingkai');
-  font-style: italic;
-  color: #fff;
-  text-shadow: 1px 1px 0 #f0bebb;
-  font-size: 50px;
+//  .font_family('STXingkai');
+//  font-style: italic;
+//  color: #e48773;
+//  text-shadow: 1px 10px 8px #6c0e18;
+//  font-size: 50px;
   position: absolute;
   top: 34px;
   left: 33px;
-  margin: 0;
-  font-weight: 100;
+//  margin: 0;
+//  font-weight: 100;
 }
 .title_yth{
   position: absolute;
@@ -192,6 +194,7 @@ body{
   right: 10px;
   letter-spacing: 0px;
   font-weight: 100;
+  text-shadow: 1px 10px 8px #6c0e18;
 }
 .title_3{
   width: 364px;
@@ -208,14 +211,16 @@ body{
   position: relative;
   span{
     display: block;
-    height: 22px;
+    height: 24px;
+    line-height: 24px;
 //    float: left;
 //    margin: 10px 14px;
      position: absolute;
-     top: 0;
-     bottom: 0;
+     top: 50%;
+    margin-top: -12px;
+//     bottom: 0;
 //     left: 14px;
-     margin: auto;
+//     margin: auto;
   }
 }
 .title_3_1{
@@ -475,6 +480,49 @@ body{
   font-size: 14px;
 }
 //footer end
+
+.norm_suc{
+  width: 290px;
+  height: 140px;
+  background-color: #fff;
+  position: fixed;
+//  top: 0;
+  top:20%;
+  right: 0;
+  left: 0;
+//  bottom: 0;
+  margin: auto;
+  border: 1px solid #ff414e;
+  .border_radius();
+  padding: 10px;
+
+}
+.norm_suc_h{
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 5px;
+  margin: 0 0 12px 0;
+  color: #e1121a;
+  font-size: 20px;
+  .font_family("Microsoft YaHei");
+}
+.norm_suc_p{
+  color: #909090;
+  text-align: center;
+}
+.norm_suc_sub{
+  width: 100px;
+  height: 40px;
+  display: block;
+  background-color: #ff414e;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 8px;
+  .border_radius();
+  line-height: 36px;
+  .center(30px);
+}
 
 
 
