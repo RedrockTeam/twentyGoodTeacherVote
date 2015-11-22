@@ -285,7 +285,17 @@
         }
         footer p{
             margin: 0;
-        }</style>
+        }
+        .detail-p {
+            height: 82px;
+            overflow: hidden;
+            -webkit-transition: height ease-in-out 250ms;
+            transition: height ease-in-out 250ms;
+        }
+        .detail-p.hide-p {
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -312,7 +322,7 @@
                 </div>
                 <div class="troope_info">
                     <h3>{{$value->name}}</h3>
-                    <p>{{$value->introduce}}</p>
+                    <p class="detail-p">{{$value->introduce}}</p>
                 </div>
             </div>
             <div class="panel">
@@ -339,6 +349,9 @@
 <script>
     var ALLOW = !($('html').attr('data-isvoted') == 'NO'); //没投过的就允许
     $(document)
+            .on('click', '.detail-p', function () {
+                $(this).toggleClass('hide-p');
+            })
             .on('click', '.troopes', function () {
                 if (!ALLOW) {
                     alert('你已经投过票了!');
