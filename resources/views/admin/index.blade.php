@@ -75,7 +75,7 @@
             var input_dom = $(this).parents('.row').find('input');
             var value = {};
             $.each(input_dom, function(k, v) {
-                if($(v).attr('name') != 'photo') {
+                if($(v).attr('name') != 'photo' || $(v).attr('name') != '_token') {
                     value[$(v).attr('name')] = $(v).val();
                 }
 
