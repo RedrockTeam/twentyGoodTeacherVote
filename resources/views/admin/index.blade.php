@@ -31,7 +31,7 @@
             <div class="col-md-1 h3">修改头像</div>
             <div class="col-md-1 h3">提名时间</div>
             <div class="col-md-1 h3">候选人状态</div>
-            <div class="col-md-2 h3">操作</div>
+            <div class="col-md-1 h3">操作</div>
         </div>
         @foreach($candidate as $value)
             <br>
@@ -47,7 +47,7 @@
                 <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->student_vote}}" name="student_vote" disabled></div>
                 <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->teacher_vote}}" name="teacher_vote" disabled></div>
                 <div class="col-md-1">
-                    <form action="{{route('admin/editphoto')}}">
+                    <form action="{{route('admin/editphoto')}}" method="post" enctype="multipart/form-data">
                         <input type="file" class="form-control"  name="photo">
                         <input type="hidden" value="{{$value->id}}">
                         {{csrf_field()}}
