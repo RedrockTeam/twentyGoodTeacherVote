@@ -367,7 +367,7 @@
                 var $self = $(this).find('.heartImg');
                 var len = $('.heartImg.selected').length;
                 console.log(len);
-                if ( len > 11 ) {
+                if ( len >= 10 ) {
                     alert('最多选择10个!');
                     return false;
                 }
