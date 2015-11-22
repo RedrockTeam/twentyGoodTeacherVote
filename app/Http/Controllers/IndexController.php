@@ -246,9 +246,11 @@ FROM
     public function mmo(){
         $openid =  Input::only('openid');
         $this->weixinLogin($openid['openid']);
+
         $morality = Candidate::where('type', '1')->where('status', '1')->get();
         if(!Auth::check()) {
-            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1);
+            return view('attention')->with('openid', $openid['openid']);
+//            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1);
         }
         $user = Auth::user();
         $morality_voted = UserVote::where('user_id', '=', $user->id)
@@ -266,11 +268,11 @@ FROM
             }
         }
         if(!isset($morality_voted_peo))  {
-            $morality_voted_peo = "";
+            $morality_voted_peo = "NO";
         } else {
-            $morality_voted_peo = json_encode($morality_voted_peo);
+            $morality_voted_peo = "YES";
         }
-        return view('mobile')->with('morality', $morality)->with('morality_vote', 'YES')->with('type', 1);
+        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 1);
     }
 
     //移动端师德页面
@@ -279,7 +281,8 @@ FROM
         $this->weixinLogin($openid['openid']);
         $morality = Candidate::where('type', '2')->where('status', '1')->get();
         if(!Auth::check()) {
-            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2);
+            return view('attention')->with('openid', $openid['openid']);;
+//            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2);
         }
         $user = Auth::user();
         $morality_voted = UserVote::where('user_id', '=', $user->id)
@@ -297,11 +300,11 @@ FROM
             }
         }
         if(!isset($morality_voted_peo))  {
-            $morality_voted_peo = "";
+            $morality_voted_peo = "NO";
         } else {
-            $morality_voted_peo = json_encode($morality_voted_peo);
+            $morality_voted_peo = "YES";
         }
-        return view('mobile')->with('morality', $morality)->with('morality_vote', 'YES')->with('type', 2);
+        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 2);
     }
     public function weixinLogin($openid) {
         $result = $this->bindVerify($openid);
@@ -310,6 +313,7 @@ FROM
             Auth::loginUsingId($user->id);
             Session::put('uid', $result->stuId);
         }
+        return false;
     }
 
     private function bindVerify($openid){

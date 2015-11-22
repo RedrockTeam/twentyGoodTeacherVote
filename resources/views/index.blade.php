@@ -53,7 +53,7 @@
 	                            <label>*学号（学生）/一卡通（教师）
 	                                <input id="user" class="log_info" type="text" value="{{old('user')}}" name="user" placeholder="用户名"/>
 	                            </label>
-	                            <label>*学生密码默认身份证后六位/教师密码为注册密码
+	                            <label>*学生密码身份证后六位/教师密码为注册密码
 	                                <input id="password" class="log_info" type="password" placeholder="密   码" name="password"/>
 	                            </label>
 	                            {{--csrf--}}
@@ -61,7 +61,7 @@
 	                            <input class="log_sub" type="submit" value="登录"/>
 	                        </form>
 	                        <a class="log_teacher" target="_blank" href="http://redrock.cqupt.edu.cn/RedCenter/index.php/Home/TeacherRegister/index.html">教师注册入口</a>
-	                        <a class="log_forget" href="javascript:alert('请联系红岩网校工作站~')">忘记密码</a>
+	                        {{--<a class="log_forget" href="javascript:alert('请联系红岩网校工作站~')">忘记密码</a>--}}
 	                    </div>
                     @else
                             <!--登陆后-->
