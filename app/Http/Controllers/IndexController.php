@@ -40,7 +40,7 @@ class IndexController extends Controller {
     //排行榜
     public function rank() {
         $mo_online = DB::select("select (pc_vote + wechat_vote) AS vote from candidate
-				where type = '1'
+				where type = '1' and status = '1'
 				ORDER BY
 					vote DESC limit 10");
         $mo_first = isset($mo_online[2]->vote) ? $mo_online[2]->vote : 0;
@@ -91,14 +91,14 @@ FROM
 					teacher_vote
 				FROM
 					candidate
-				where type = '1'
+				where type = '1' and status = '1'
 				ORDER BY
 					vote DESC
 			) a,
 			(SELECT(@score := 0)) AS b
 	) c");
         $yo_online = DB::select("select (pc_vote + wechat_vote) AS vote from candidate
-				where type = '2'
+				where type = '2' and status = '1'
 				ORDER BY
 					vote DESC limit 10");
         $yo_first = isset($yo_online[2]->vote) ? $yo_online[2]->vote : 0;
@@ -149,7 +149,7 @@ FROM
 					teacher_vote
 				FROM
 					candidate
-				where type = '2'
+				where type = '2' and status = '1'
 				ORDER BY
 					vote DESC
 			) a,
