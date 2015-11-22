@@ -75,7 +75,10 @@
             var input_dom = $(this).parents('.row').find('input');
             var value = {};
             $.each(input_dom, function(k, v) {
-                value[$(v).attr('name')] = $(v).val();
+                if($(v).attr('name') != 'photo') {
+                    value[$(v).attr('name')] = $(v).val();
+                }
+
             });
             $.ajax({
                 type: "post",
