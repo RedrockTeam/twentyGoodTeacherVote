@@ -350,14 +350,14 @@
     var ALLOW = !($('html').attr('data-isvoted') == 'NO'); //没投过的就允许
     $(document)
             .on('click', '.troope_info', function () {
-                $self = $(this);
+                var $self = $(this);
                 if ($self.attr('data-hide') == 'no') {
                     $self.height(122).attr('data-hide', 'yes');
                 } else {
                     $self.height($self.find('h3').height() + $self.find('p').height() + 5)
                             .attr('data-hide', 'no');
                 }
-
+                return false;
             })
             .on('click', '.troopes', function () {
                 if (!ALLOW) {
