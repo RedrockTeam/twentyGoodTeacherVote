@@ -42,10 +42,12 @@ class AdController extends Controller
      */
     public function show($id) {
         $data = Ad::find($id);
+//        return $data;
         if(!$data) {
            return response('404', 404);
         }
         $data['content'] = str_replace("\n", '<br>', $data['content']);
+        $data['content'] = str_replace(" ", '&nbsp', $data['content']);
         return view('talk')->with('data',$data);
     }
 
