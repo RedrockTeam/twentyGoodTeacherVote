@@ -318,7 +318,7 @@
         <section class="troopes" data-vertification="true" data-troope="{{$value->id}}">
             <div class="statement">
                 <div class="head">
-                    <img class="lazy" src="{{$value->avatar}}">
+                    <img class="lazy" src="{{asset("upload").'/'.$value->avatar}}">
                 </div>
                 <div class="troope_info">
                     <h3>{{$value->name}}</h3>
