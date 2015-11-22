@@ -285,7 +285,17 @@
         }
         footer p{
             margin: 0;
-        }</style>
+        }
+        .troope_info {
+            height: 122px;
+            overflow: hidden;
+            -webkit-transition: height ease-in-out 250ms;
+            transition: height ease-in-out 250ms;
+        }
+        .head {
+            float: left;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -312,7 +322,7 @@
                 </div>
                 <div class="troope_info">
                     <h3>{{$value->name}}</h3>
-                    <p>{{$value->introduce}}</p>
+                    <p class="detail-p">{{$value->introduce}}</p>
                 </div>
             </div>
             <div class="panel">
@@ -339,6 +349,16 @@
 <script>
     var ALLOW = !($('html').attr('data-isvoted') == 'NO'); //没投过的就允许
     $(document)
+            .on('click', '.troope_info', function () {
+                var $self = $(this);
+                if ($self.attr('data-hide') == 'no') {
+                    $self.height(122).attr('data-hide', 'yes');
+                } else {
+                    $self.height($self.find('h3').height() + $self.find('p').height() + 5)
+                            .attr('data-hide', 'no');
+                }
+                return false;
+            })
             .on('click', '.troopes', function () {
                 if (!ALLOW) {
                     alert('你已经投过票了!');
@@ -347,7 +367,7 @@
                 var $self = $(this).find('.heartImg');
                 var len = $('.heartImg.selected').length;
                 console.log(len);
-                if ( len > 11 ) {
+                if ( len >= 10 ) {
                     alert('最多选择10个!');
                     return false;
                 }
