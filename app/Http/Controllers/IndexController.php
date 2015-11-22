@@ -43,8 +43,8 @@ class IndexController extends Controller {
 				where type = '1'
 				ORDER BY
 					vote DESC limit 10");
-        $mo_first = $mo_online[2]->vote ? $mo_online[2]->vote : 0;
-        $mo_end = $mo_online[9]->vote ? $mo_online[9]->vote : 100000;
+        $mo_first = isset($mo_online[2]->vote) ? $mo_online[2]->vote : 0;
+        $mo_end = isset($mo_online[9]->vote) ? $mo_online[9]->vote : 100000;
         $mo =  DB::select("SELECT
 	name,
 	pc_vote,
@@ -101,8 +101,8 @@ FROM
 				where type = '2'
 				ORDER BY
 					vote DESC limit 10");
-        $yo_first = $yo_online[2]->vote ? $yo_online[2]->vote : 0;
-        $yo_end = $yo_online[9]->vote ? $yo_online[9]->vote : 10000000;
+        $yo_first = isset($yo_online[2]->vote) ? $yo_online[2]->vote : 0;
+        $yo_end = isset($yo_online[9]->vote) ? $yo_online[9]->vote : 10000000;
         $yo =  DB::select("SELECT
 	name,
 	pc_vote,
