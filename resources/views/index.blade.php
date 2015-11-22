@@ -53,7 +53,7 @@
 	                            <label>*学号（学生）/一卡通（教师）
 	                                <input id="user" class="log_info" type="text" value="{{old('user')}}" name="user" placeholder="用户名"/>
 	                            </label>
-	                            <label>*默认重邮通行证密码
+	                            <label>*学生密码默认身份证后六位/教师密码为注册密码
 	                                <input id="password" class="log_info" type="password" placeholder="密   码" name="password"/>
 	                            </label>
 	                            {{--csrf--}}
