@@ -289,8 +289,11 @@
         .troope_info {
             height: 122px;
             overflow: hidden;
-            -webkit-transition: height ease-in-out 250ms;
-            transition: height ease-in-out 250ms;
+            /*-webkit-transition: height ease-in-out 250ms;*/
+            /*transition: height ease-in-out 250ms;*/
+        }
+        .troope_info p{
+            text-indent: 2em;
         }
         .head {
             float: left;
@@ -349,7 +352,8 @@
 <script>
     var ALLOW = !($('html').attr('data-isvoted') == 'NO'); //没投过的就允许
     $(document)
-            .on('click', '.troope_info', function () {
+            .on('click', '.troope_info', function (e) {
+                e.stopPropagation();
                 var $self = $(this);
                 if ($self.attr('data-hide') == 'no') {
                     $self.height(122).attr('data-hide', 'yes');
