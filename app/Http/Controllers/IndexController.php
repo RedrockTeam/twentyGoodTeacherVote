@@ -274,7 +274,7 @@ FROM
         return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 1);
     }
 
-    //移动端师德页面
+    //移动端青年页面
     public function myo(){
         $openid =  Input::only('openid');
         $re = $this->weixinLogin($openid['openid']);
