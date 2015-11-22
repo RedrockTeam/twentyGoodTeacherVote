@@ -286,14 +286,14 @@
         footer p{
             margin: 0;
         }
-        .detail-p {
-            height: 82px;
+        .troope_info {
+            height: 122px;
             overflow: hidden;
             -webkit-transition: height ease-in-out 250ms;
             transition: height ease-in-out 250ms;
         }
-        .detail-p.hide-p {
-            height: auto;
+        .head {
+            float: left;
         }
     </style>
 </head>
@@ -349,8 +349,8 @@
 <script>
     var ALLOW = !($('html').attr('data-isvoted') == 'NO'); //没投过的就允许
     $(document)
-            .on('click', '.detail-p', function () {
-                $(this).toggleClass('hide-p');
+            .on('click', '.troope_info', function () {
+                $(this).height($(this).find('h3').height() + $(this).find('p').height());
             })
             .on('click', '.troopes', function () {
                 if (!ALLOW) {
