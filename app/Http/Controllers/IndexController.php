@@ -245,10 +245,10 @@ FROM
     //移动端师德页面
     public function mmo(){
         $openid =  Input::only('openid');
-        $this->weixinLogin($openid['openid']);
+        $re = $this->weixinLogin($openid['openid']);
 
         $morality = Candidate::where('type', '1')->where('status', '1')->get();
-        if(!Auth::check()) {
+        if(!Auth::check() || !$re) {
             return view('attention')->with('openid', $openid['openid']);
 //            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1);
         }
@@ -278,9 +278,9 @@ FROM
     //移动端师德页面
     public function myo(){
         $openid =  Input::only('openid');
-        $this->weixinLogin($openid['openid']);
+        $re = $this->weixinLogin($openid['openid']);
         $morality = Candidate::where('type', '2')->where('status', '1')->get();
-        if(!Auth::check()) {
+        if(!Auth::check() || $re) {
             return view('attention')->with('openid', $openid['openid']);;
 //            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2);
         }
