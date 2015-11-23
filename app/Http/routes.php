@@ -26,7 +26,6 @@ Route::group(['prefix' => ''], function() {
         $openid = Input::only('openid');
         return view('attention')->with('openid', $openid);
     }]); //bind
-
     Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']); //登录
     Route::post('nominate', ['as' => 'nominate', 'uses' => 'NominateController@candidate']); //提名方法
     Route::post('vote', ['as' => 'voteMethod', 'uses' => 'VoteController@update']);

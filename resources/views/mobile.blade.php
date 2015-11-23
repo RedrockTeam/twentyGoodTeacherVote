@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-url="{{route('wechatvote')}}" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}" data-allow="" data-bind="{{$bind}}" data-openid="{{$openid}}" data-redirect="{{route('attention')}}"><!--data-isvoted=YES|NO -->
+<html lang="zh-CN" data-url="{{route('wechatvote')}}" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}" data-bind="{{$bind}}" data-openid="{{$openid}}" data-redirect="{{route('attention')}}"><!--data-isvoted=YES|NO -->
 <head>
     <meta charset="UTF-8">
     <meta content="telephone=no" name="format-detection" />
@@ -26,7 +26,7 @@
             padding-left: 0;
             padding-right: 0; }
         .container .title {
-            background: url("../img/title.png") repeat-x;
+            background: url("./img/title.png") repeat-x;
             background-color: #fd687a;
             background-position: 0 90%; }
         .container .title h3 {
@@ -351,6 +351,9 @@
 <script>FastClick.attach(document.body);</script>
 <script>
     var ALLOW = $('html').attr('data-isvoted') == 'NO'; //没投过的就允许
+    var BIND = $('html').attr('data-bind') == '1';
+    var REDIRECT_URL = $('html').attr('data-redirect');
+    var OPENID = $('html').attr('data-openid');
     $(document)
             .on('click', '.troope_info', function (e) {
                 e.stopPropagation();
@@ -364,6 +367,12 @@
                 return false;
             })
             .on('click', '.troopes', function () {
+                if (!BIND) {
+                    var redirect = REDIRECT_URL + '?openid=' + OPENID;
+                    alert('您还未绑定, 请先绑定!');
+                    location.href = redirect;
+                    return;
+                }
                 if (!ALLOW) {
                     alert('你已经投过票了!');
                     return;

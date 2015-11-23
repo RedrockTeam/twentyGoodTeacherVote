@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'redrock.cqupt.edu.cn', 'name' => 'redrock'],
 
     /*
     |--------------------------------------------------------------------------
