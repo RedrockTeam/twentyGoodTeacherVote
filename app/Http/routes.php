@@ -28,7 +28,6 @@ Route::group(['prefix' => ''], function() {
     Route::post('vote', ['as' => 'voteMethod', 'uses' => 'VoteController@update']);
     Route::post('wechatvote', ['as' => 'wechatvote', 'uses' => 'VoteController@weixinUpdate']);
 
-
     //RESTful test
     Route::resource('ad', 'AdController', ['only' => ['index', 'show', 'create', 'destroy', 'update']]);
 
