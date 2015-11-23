@@ -22,7 +22,10 @@ Route::group(['prefix' => ''], function() {
     Route::get('logout', ['as' => 'logout', 'uses' => 'IndexController@logout']); //登出
     Route::get('mobilemo', ['as' => 'mobileindex', 'uses' => 'IndexController@mmo']); //移动端mo
     Route::get('mobileyo', ['as' => 'mobileindex', 'uses' => 'IndexController@myo']); //移动端mo
-
+    Route::get('attenttion', ['as' => 'attention', 'uses' => function() {
+        $openid = Input::only('openid');
+        return view('attention')->with('openid', $openid);
+    }]); //bind
     Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']); //登录
     Route::post('nominate', ['as' => 'nominate', 'uses' => 'NominateController@candidate']); //提名方法
     Route::post('vote', ['as' => 'voteMethod', 'uses' => 'VoteController@update']);

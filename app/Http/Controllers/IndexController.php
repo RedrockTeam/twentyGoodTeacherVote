@@ -248,8 +248,8 @@ FROM
         $re = $this->weixinLogin($openid['openid']);
         $morality = Candidate::where('type', '1')->where('status', '1')->get();
         if(!$re) {
-            return view('attention')->with('openid', $openid['openid']);
-//            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1);
+//            return view('attention')->with('openid', $openid['openid']);
+            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1)->with('bind', '0')->with('openid', $openid['openid']);
         }
         $user = Auth::user();
         $morality_voted = UserVote::where('user_id', '=', $user->id)
@@ -271,7 +271,7 @@ FROM
         } else {
             $morality_voted_peo = "YES";
         }
-        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 1);
+        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 1)->with('bind', '1')->with('openid', $openid['openid']);
     }
 
     //移动端青年页面
@@ -280,8 +280,8 @@ FROM
         $re = $this->weixinLogin($openid['openid']);
         $morality = Candidate::where('type', '2')->where('status', '1')->get();
         if(!$re) {
-            return view('attention')->with('openid', $openid['openid']);;
-//            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2);
+//            return view('attention')->with('openid', $openid['openid']);;
+            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2)->with('bind', '0')->with('openid', $openid['openid']);
         }
         $user = Auth::user();
         $morality_voted = UserVote::where('user_id', '=', $user->id)
@@ -303,7 +303,7 @@ FROM
         } else {
             $morality_voted_peo = "YES";
         }
-        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 2);
+        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 2)->with('bind', '1')->with('openid', $openid['openid']);
     }
     public function weixinLogin($openid) {
         $result = $this->bindVerify($openid);
