@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-url="{{route('wechatvote')}}" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}" data-allow=""><!--data-isvoted=YES|NO -->
+<html lang="zh-CN" data-url="{{route('wechatvote')}}" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}" data-allow="" data-bind="{{$bind}}" data-openid="{{$openid}}" data-redirect="{{route('attention')}}"><!--data-isvoted=YES|NO -->
 <head>
     <meta charset="UTF-8">
     <meta content="telephone=no" name="format-detection" />
