@@ -85,10 +85,6 @@
             </tbody>
         </table>
     </div>
-    <div class="footer">
-        <p class="footer_p">地址：重庆市南岸区崇文路2号（重庆邮电大学内） 400065 E-mail:redrock@cqupt.edu.cn (023-62461084)</p>
-    </div>
-</div>
 @stop
 @section('js')
 @parent

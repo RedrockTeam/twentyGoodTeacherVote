@@ -303,7 +303,7 @@
 <body>
 <div class="container">
     <nav class="nav title">
-        <h3>十佳师德标兵 十佳青年教师</h3>
+        <h3>{{$title}}</h3>
     </nav>
     <header class="nav logo">
         <div class="img_wrapper"><img src="img/banner.jpg" alt="wrapper"/></div>

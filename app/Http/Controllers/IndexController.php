@@ -249,7 +249,7 @@ FROM
         $morality = Candidate::where('type', '1')->where('status', '1')->get();
         if(!$re) {
 //            return view('attention')->with('openid', $openid['openid']);
-            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1)->with('bind', '0')->with('openid', $openid['openid']);
+            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1)->with('bind', '0')->with('openid', $openid['openid'])->with('title', '十佳师德标兵');
         }
         $user = Auth::user();
         $morality_voted = UserVote::where('user_id', '=', $user->id)
@@ -271,7 +271,7 @@ FROM
         } else {
             $morality_voted_peo = "YES";
         }
-        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 1)->with('bind', '1')->with('openid', $openid['openid']);
+        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 1)->with('bind', '1')->with('openid', $openid['openid'])->with('title', '十佳师德标兵');
     }
 
     //移动端青年页面
@@ -281,7 +281,7 @@ FROM
         $morality = Candidate::where('type', '2')->where('status', '1')->get();
         if(!$re) {
 //            return view('attention')->with('openid', $openid['openid']);;
-            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2)->with('bind', '0')->with('openid', $openid['openid']);
+            return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2)->with('bind', '0')->with('openid', $openid['openid'])->with('title', '十佳青年教师');
         }
         $user = Auth::user();
         $morality_voted = UserVote::where('user_id', '=', $user->id)
@@ -303,7 +303,7 @@ FROM
         } else {
             $morality_voted_peo = "YES";
         }
-        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 2)->with('bind', '1')->with('openid', $openid['openid']);
+        return view('mobile')->with('morality', $morality)->with('morality_vote', $morality_voted_peo)->with('type', 2)->with('bind', '1')->with('openid', $openid['openid'])->with('title', '十佳青年教师');
     }
     public function weixinLogin($openid) {
         $result = $this->bindVerify($openid);
