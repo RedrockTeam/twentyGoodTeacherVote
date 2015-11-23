@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="telephone=no" name="format-detection" />
     <meta author="modified by Ling."/>
-    <title>重庆邮电大学双十佳投票平台</title>
+    <title>重庆邮电大学双十佳投票平台({{$title}})</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <style>
         /*!
