@@ -24,7 +24,7 @@ Route::group(['prefix' => ''], function() {
     Route::get('mobileyo', ['as' => 'mobileindex', 'uses' => 'IndexController@myo']); //移动端mo
     Route::get('attenttion', ['as' => 'attention', 'uses' => function() {
         $openid = Input::only('openid');
-        return view('attention')->with('openid', $openid);
+        return view('attention')->with('openid', $openid['openid']);
     }]); //bind
     Route::post('login', ['as' => 'login', 'uses' => 'IndexController@login']); //登录
     Route::post('nominate', ['as' => 'nominate', 'uses' => 'NominateController@candidate']); //提名方法
