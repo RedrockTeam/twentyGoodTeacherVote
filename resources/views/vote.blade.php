@@ -64,7 +64,7 @@
                                 @endif
                                 <div class="vote_people @if($key%4 == 3 || $key == (count($youngth) - 1)) vote_people_last @endif">
                                     <div class="vote_face"><span class="vote_face_num">{{$value->pc_vote}}票</span><span class="vote_face_curain"><a class="vote_face_detail" href="{{route('detail', ['id' => $value->id])}}#nor">查看详情</a></span><img src="{{asset("upload").'/'.$value->avatar}}" alt="face"/></div>
-                                    <p class="vote_name">{{$value->name}}<span class="vote_v heart">&#xe651;</span><input class="vote_v_in" type="checkbox" name="nor" value="{{$value->id}}"/></p>
+                                    <p class="vote_name">{{$value->name}}<span class="vote_v heart">&#xe651;</span><input class="vote_v_in" type="checkbox" name="yh" value="{{$value->id}}"/></p>
                                     <p class="vote_part">{{$value->unit}}</p>
                                 </div>
                                 @if($key%4 == 3 || $key == (count($youngth) - 1))
