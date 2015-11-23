@@ -53,7 +53,7 @@
 	                            <label>*学号（学生）/一卡通（教职工）
 	                                <input id="user" class="log_info" type="text" value="{{old('user')}}" name="user" placeholder="用户名"/>
 	                            </label>
-	                            <label>*学生密码身份证后六位/教职工密码为注册密码
+	                            <label>*学生密码身份证后六位(部分研究生可能为后五位)/教职工密码为注册密码
 	                                <input id="password" class="log_info" type="password" placeholder="密   码" name="password"/>
 	                            </label>
 	                            {{--csrf--}}
