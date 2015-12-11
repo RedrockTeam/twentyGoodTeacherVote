@@ -44,8 +44,8 @@
                 <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->unit}}" name="unit"></div>
                 <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->pc_vote}}" name="pc_vote" disabled></div>
                 <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->wechat_vote}}" name="wechat_vote" disabled></div>
-                <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->student_vote}}" name="student_vote" disabled></div>
-                <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->teacher_vote}}" name="teacher_vote" disabled></div>
+                <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->student_vote}}" name="student_vote" ></div>
+                <div class="col-md-1"><input type="text" class="form-control"  value="{{$value->teacher_vote}}" name="teacher_vote" ></div>
                 <div class="col-md-1">
                     <form action="{{route('admin/editphoto')}}" method="post" enctype="multipart/form-data">
                         <input type="file" class="form-control"  name="photo">
