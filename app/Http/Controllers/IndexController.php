@@ -79,7 +79,7 @@ FROM
 				END
 			) AS online_score,
 			(student_vote / 34 * 30) AS student_score,
-			(teacher_vote / 14 * 50) AS teacher_score
+			(teacher_vote / 13 * 50) AS teacher_score
 		FROM
 			(
 				SELECT
@@ -137,7 +137,7 @@ FROM
 				END
 			) AS online_score,
 			(student_vote / 34 * 30) AS student_score,
-			(teacher_vote / 14 * 50) AS teacher_score
+			(teacher_vote / 13 * 50) AS teacher_score
 		FROM
 			(
 				SELECT
