@@ -96,7 +96,7 @@ FROM
 					vote DESC
 			) a,
 			(SELECT(@score := 0)) AS b
-	) c ORDER BY total_score asc");
+	) c ORDER BY total_score DESC ");
         $yo_online = DB::select("select (pc_vote + wechat_vote) AS vote from candidate
 				where type = '2' and status = '1'
 				ORDER BY
@@ -154,7 +154,7 @@ FROM
 					vote DESC
 			) a,
 			(SELECT(@score := 0)) AS b
-	) c");
+	) c ORDER BY total_score DESC");
         return view('rank')->with('mo', $mo)->with('yo', $yo);
     }
 
