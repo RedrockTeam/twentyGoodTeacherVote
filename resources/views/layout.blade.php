@@ -23,8 +23,8 @@
     <div class="nav">
         <div class="nav_contain">
             <div class="logo">
-                <img src="{{asset('img/cq_logo.png')}}" alt="cqupt"/>
-                <img src="{{asset('img/cq.png')}}" alt="cqupt"/>
+                <img src="{{secure_asset('img/cq_logo.png')}}" alt="cqupt"/>
+                <img src="{{secure_asset('img/cq.png')}}" alt="cqupt"/>
             </div>
             <ul class="nav_list">
                 <li><a href="{{route('index')}}" data-left="60" @yield('index')>首页</a></li>
@@ -38,9 +38,9 @@
 
     </div>
     <div class="content">
-        <img class="title_1" src="{{asset('img/second.png')}}" alt="第二届"/>
-        <img class="title_mor" src="{{asset('img/moral.png')}}" alt="moral"/>
-        <img class="title_yth" src="{{asset('img/youngth.png')}}" alt="youngth"/>
+        <img class="title_1" src="{{secure_asset('img/second.png')}}" alt="第二届"/>
+        <img class="title_mor" src="{{secure_asset('img/moral.png')}}" alt="moral"/>
+        <img class="title_yth" src="{{secure_asset('img/youngth.png')}}" alt="youngth"/>
         <h3 class="title_2">评选表彰活动专题网</h3>
         <h3 class="title_3">
             <span class="title_3_1">塑高尚师德模范</span>
@@ -57,8 +57,8 @@
     </div>
     </div>
 @section('js')
-    <script src="{{asset('js/jquery-1.11.3.min.js')}}"></script>
-    <script src="{{asset('js/index-min.js')}}"></script>
+    <script src="{{secure_asset('js/jquery-1.11.3.min.js')}}"></script>
+    <script src="{{secure_asset('js/index-min.js')}}"></script>
     <script>
         !function(t){function a(t,e){for(var n=!0,i=t.length,o=0;i>o;o++)0===t[o].css("width")&&(n=!1);n?e():setTimeout(function(){a(t,e)},100)}var e=t(".nav_bar"),n=t(".nav_list"),i=t("[data-main]");e.css({left:i.data("left")+"px",width:i.css("width")}),n.on("mouseover",function(a){var n=a.target;if("a"===n.nodeName.toLowerCase()){var i=t(n).data("left")+"px",o=t(n).css("width");e.animate({left:i,width:o},"normal")}return!1}),n.on("mouseleave",function(a){var n=a.target;if("a"===n.nodeName.toLowerCase()){var i=t("[data-main]"),o=i.data("left")+"px",r=i.css("width");e.animate({left:o,width:r},"normal")}});var o=t(".title_mor"),r=t(".title_yth");a([o,r],function(){o.animate({top:"12px"},1500),r.animate({top:"107px"},1500),t(".title_3").animate({opacity:1},1500)})}(jQuery);
     </script>
