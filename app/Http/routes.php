@@ -13,7 +13,7 @@
 
 
 Route::group(['prefix' => ''], function() {
-    Route::get('/', ['https', ['as' => 'index', 'uses' => 'IndexController@index']]); //首页
+    Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']); //首页
     Route::get('norm', ['as' => 'norm', 'uses' => 'IndexController@norm']); //提名页面
     Route::get('detail', ['as' => 'detail', 'uses' => 'IndexController@detail']); //候选人详情
     Route::get('votePage', ['as' => 'vote', 'uses' => 'IndexController@vote']); //投票
