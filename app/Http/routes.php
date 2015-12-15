@@ -12,7 +12,7 @@
 */
 
 
-Route::group(['prefix' => ''], ['https', function() {
+Route::group(['prefix' => ''], function() {
     Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']); //首页
     Route::get('norm', ['as' => 'norm', 'uses' => 'IndexController@norm']); //提名页面
     Route::get('detail', ['as' => 'detail', 'uses' => 'IndexController@detail']); //候选人详情
@@ -36,7 +36,7 @@ Route::group(['prefix' => ''], ['https', function() {
     Route::resource('ad', 'AdController', ['only' => ['index', 'show', 'create', 'destroy', 'update']]);
 
 
-}]);
+});
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('index', ['as' => 'admin/index', 'uses' => 'AdminController@index']);
