@@ -5,15 +5,18 @@
  * Date: 15/12/25
  * Time: 16:44
  */
+namespace App\Providers;
+
 use Illuminate\Routing\UrlGenerator;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use \Illuminate\Routing\Router;
 
 class SecureRoutingServiceProvider extends ServiceProvider {
-    public function boot(\Illuminate\Routing\Router $router) {
-        App::bind('url', function () {
+    public function boot(Router $router) {
+        $this->app->bind('url', function () {
             $generator = new UrlGenerator(
-                App::make('router')->getRoutes(),
-                App::make('request')
+                $this->app->make('router')->getRoutes(),
+                $this->app->make('request')
 
             );
 
@@ -22,6 +25,5 @@ class SecureRoutingServiceProvider extends ServiceProvider {
             return $generator;
         });
 
-        parent::boot();
     }
 }
