@@ -1,7 +1,7 @@
 @extends('layout')
 @section('css')
-    <link rel="stylesheet" href="{{asset('css/norm.css')}}"/>
-    <link rel="stylesheet" href="{{asset('css/index.css')}}"/>
+    <link rel="stylesheet" href="{{secure_asset('css/norm.css')}}"/>
+    <link rel="stylesheet" href="{{secure_asset('css/index.css')}}"/>
 @stop
 @section('norm')
     data-main="1"

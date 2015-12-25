@@ -19,7 +19,7 @@
         </ul>
         <div class="detail_container">
             <h3 class="detail_title">事迹简介</h3>
-            <div class="detail_face"><img src="{{asset('upload').'/'.$data->avatar}}" alt="face"/></div>
+            <div class="detail_face"><img src="{{secure_asset('upload').'/'.$data->avatar}}" alt="face"/></div>
             <div class="detail_group">
                 <!--多年后又用到了&nbsp;，这里真是有毒-->
                 <span class="detail_key">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名 :</span>
@@ -74,7 +74,7 @@
 @stop
 @section('js')
 @parent
-    <script src="{{asset('js/vote.js')}}"></script>
+    <script src="{{secure_asset('js/vote.js')}}"></script>
     <script>$(document.body).scrollTop(500);</script>
 @stop
 

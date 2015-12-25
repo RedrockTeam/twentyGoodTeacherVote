@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/bootstrap.min.css')}}">
     <style>
         /*body {*/
             /*background-color: #337ab7;*/
@@ -65,10 +65,10 @@
         @endforeach
     </div>
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{secure_asset('js/jquery.min.js')}}"></script>
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{secure_asset('js/bootstrap.min.js')}}"></script>
     <script>
         $(".btn-warning").on('click', function() {
             var id = $(this).data('id');

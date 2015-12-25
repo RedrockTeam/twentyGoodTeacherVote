@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('css')
-    <link rel="stylesheet" href="{{asset('css/index.css')}}"/>
+    <link rel="stylesheet" href="{{secure_asset('css/index.css')}}"/>
 @stop
 
 @section('index')
@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="news shadow">
                     <div class="news_title">
-                        <img src="{{asset('img/info.png')}}" alt="information"/>
+                        <img src="{{secure_asset('img/info.png')}}" alt="information"/>
                         <h3 class="news_h">最新公告</h3>
 
                     </div>
@@ -22,7 +22,7 @@
                             <li class="news_li {{$key%2 ? '' : 'news_li_even'}}">
                                 <span class="news_tip">
                                     @if($key < 3)
-                                    <img src="{{asset('img/new.png')}}" alt="new"/>
+                                    <img src="{{secure_asset('img/new.png')}}" alt="new"/>
                                     @endif
                                 </span>
                                 <a href="{{route('ad.show', $value->id)}}" target="_blank">{{$value->title}}</a>
@@ -75,13 +75,13 @@
                 </div>
             </div>
             <a class="bu_nav_link" href="{{route('norm')}}">
-                <button class="bu_nav shadow"><img src="{{asset('img/write.png')}}" alt="write"/>我来提名</button>
+                <button class="bu_nav shadow"><img src="{{secure_asset('img/write.png')}}" alt="write"/>我来提名</button>
             </a>
             <a class="bu_nav_link" href="{{route('vote')}}">
-                <button class="bu_nav shadow bu_nav_mar"><img src="{{asset('img/drafts.png')}}" alt="write"/>网络投票</button>
+                <button class="bu_nav shadow bu_nav_mar"><img src="{{secure_asset('img/drafts.png')}}" alt="write"/>网络投票</button>
             </a>
             <a class="bu_nav_link" href="{{route('rank')}}">
-                <button class="bu_nav shadow"><img src="{{asset('img/mark.png')}}" alt="write"/>排行榜</button>
+                <button class="bu_nav shadow"><img src="{{secure_asset('img/mark.png')}}" alt="write"/>排行榜</button>
             </a>
         </div>
 @stop

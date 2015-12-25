@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/bootstrap.min.css')}}">
     <style>
         /*body {*/
             /*background-color: #337ab7;*/
