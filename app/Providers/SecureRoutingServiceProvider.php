@@ -8,7 +8,7 @@
 use Illuminate\Routing\UrlGenerator;
 use Illuminate\Routing\RoutingServiceProvider;
 
-class SecureRoutingServiceProvider extends RoutingServiceProvider {
+class SecureRoutingServiceProvider extends ServiceProvider {
     public function boot() {
         App::bind('url', function () {
             $generator = new UrlGenerator(
