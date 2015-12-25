@@ -6,7 +6,7 @@
  * Time: 16:44
  */
 use Illuminate\Routing\UrlGenerator;
-use Illuminate\Routing\RoutingServiceProvider;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class SecureRoutingServiceProvider extends ServiceProvider {
     public function boot() {
