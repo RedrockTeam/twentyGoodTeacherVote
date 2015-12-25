@@ -321,7 +321,7 @@
         <section class="troopes" data-vertification="true" data-troope="{{$value->id}}">
             <div class="statement">
                 <div class="head">
-                    <img class="lazy" src="{{asset("upload").'/'.$value->avatar}}">
+                    <img class="lazy" src="{{secure_asset("upload").'/'.$value->avatar}}">
                 </div>
                 <div class="troope_info">
                     <h3>{{$value->name}}</h3>
@@ -330,7 +330,7 @@
             </div>
             <div class="panel">
                 <div class="heart">
-                    <a class="vote"><img class="heartImg" src="{{asset('img/broken_heart.png')}}" alt="heart"/></a>
+                    <a class="vote"><img class="heartImg" src="{{secure_asset('img/broken_heart.png')}}" alt="heart"/></a>
                     <span class="tickets">{{$value->wechat_vote}}票</span>
                 </div>
             </div>
