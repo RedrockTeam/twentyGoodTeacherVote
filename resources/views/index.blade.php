@@ -60,7 +60,8 @@
 	                            {{csrf_field()}}
 	                            <input class="log_sub" type="submit" value="登录"/>
 	                        </form>
-	                        <a class="log_teacher" target="_blank" href="http://redrock.cqupt.edu.cn/RedCenter/index.php/Home/TeacherRegister/index.html">教职工注册入口</a>
+	                        <a class="log_teacher" target="_blank" href="http://hongyan.cqupt.edu.cn/RedCenter/index.php/Home/TeacherRegister/index.html">教职工注册入口</a>
+				<a class="log_teacher" target="_blank" href="http://hongyan.cqupt.edu.cn/RedCenter/index.php/Home/ForgetPassword/index.html">更换密码入口</a>
 	                        {{--<a class="log_forget" href="javascript:alert('请联系红岩网校工作站~')">忘记密码</a>--}}
 	                    </div>
                     @else
@@ -74,14 +75,20 @@
                     @endif
                 </div>
             </div>
-            <a class="bu_nav_link" href="{{route('norm')}}">
+            <!-- <a class="bu_nav_link" href="{{route('norm')}}">
                 <button class="bu_nav shadow"><img src="{{secure_asset('img/write.png')}}" alt="write"/>我来提名</button>
-            </a>
-            <a class="bu_nav_link" href="{{route('vote')}}">
+            </a> -->
+            <!-- <a class="bu_nav_link" href="{{route('vote')}}">
                 <button class="bu_nav shadow bu_nav_mar"><img src="{{secure_asset('img/drafts.png')}}" alt="write"/>网络投票</button>
+            </a> -->
+            <!-- <a class="bu_nav_link" href="{{route('rank')}}">
+                <button class="bu_nav shadow"><img src="{{secure_asset('img/mark.png')}}" alt="write"/>排行榜</button>
+            </a> -->
+            <a class="bu_nav_link" href="{{route('vote')}}">
+                <button class="bu_nav shadow"><img src="{{secure_asset('img/drafts.png')}}" alt="write"/>网络投票</button>
             </a>
             <a class="bu_nav_link" href="{{route('rank')}}">
-                <button class="bu_nav shadow"><img src="{{secure_asset('img/mark.png')}}" alt="write"/>排行榜</button>
+                <button class="bu_nav shadow bu_nav_mar"><img src="{{secure_asset('img/mark.png')}}" alt="write"/>排行榜</button>
             </a>
         </div>
 @stop

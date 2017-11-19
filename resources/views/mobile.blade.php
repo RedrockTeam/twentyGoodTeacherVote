@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-url="{{route('wechatvote')}}" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}" data-bind="{{$bind}}" data-openid="{{$openid}}" data-redirect="{{route('attention')}}"><!--data-isvoted=YES|NO -->
-<head>
+<!-- <html lang="zh-CN" data-url="{{route('wechatvote')}}" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}" data-bind="{{$bind}}" data-openid="{{$openid}}" data-redirect="{{route('attention')}}"><!--data-isvoted=YES|NO -->
+<html lang="zh-CN" data-url="https://wx.idsbllp.cn/shuangshijia/wechatvote" data-type="{{$type}}" data-isvoted="{{$morality_vote}}" data-token="{{csrf_token()}}" data-bind="{{$bind}}" data-openid="{{$openid}}" data-redirect="{{route('attention')}}"><!--data-isvoted=YES|NO -->
+ <head>
     <meta charset="UTF-8">
     <meta content="telephone=no" name="format-detection" />
     <meta author="modified by Ling."/>
@@ -313,7 +314,7 @@
         <h2>投票规则</h2>
         <ul>
             <li>1. 每个账号每天可在网站或“重邮小帮手”微信公众号上分别为十佳师德标兵和十佳青年教师各投一次票，每次投票投给7-10位候选人，该次投票才有效，否则投票无效。</li>
-            <li>2. 投票时间：2015年11月23日9:00 - 2015年11月29日21:00。</li>
+            <li>2. 投票时间：2017年11月20日9时0分0秒-2017年11月24日21时0分0秒。</li>
         </ul>
     </section>
     <section class="troopes_container">
@@ -321,7 +322,8 @@
         <section class="troopes" data-vertification="true" data-troope="{{$value->id}}">
             <div class="statement">
                 <div class="head">
-                    <img class="lazy" src="{{secure_asset("upload").'/'.$value->avatar}}">
+                    <!-- <img class="lazy" src="{{secure_asset("upload").'/'.$value->avatar}}"> -->
+                    <img class="lazy" src="https://wx.idsbllp.cn/shuangshijia/upload/{{$value->avatar}}">
                 </div>
                 <div class="troope_info">
                     <h3>{{$value->name}}</h3>
@@ -330,7 +332,8 @@
             </div>
             <div class="panel">
                 <div class="heart">
-                    <a class="vote"><img class="heartImg" src="{{secure_asset('img/broken_heart.png')}}" alt="heart"/></a>
+                    <!-- <a class="vote"><img class="heartImg" src="{{secure_asset('img/broken_heart.png')}}" alt="heart"/></a> -->
+                    <a class="vote"><img class="heartImg" src="https://wx.idsbllp.cn/shuangshijia/img/broken_heart.png" alt="heart"/></a>
                     <span class="tickets">{{$value->wechat_vote}}票</span>
                 </div>
             </div>

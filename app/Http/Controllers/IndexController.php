@@ -248,6 +248,10 @@ FROM
         $re = $this->weixinLogin($openid['openid']);
         $morality = Candidate::where('type', '1')->where('status', '1')->get();
         if(!$re) {
+            foreach ($morality as $value) {
+                $find=array('<p>', '</p>');
+                $value->introduce = str_replace($find, "", $value->introduce);
+            }
 //            return view('attention')->with('openid', $openid['openid']);
             return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 1)->with('bind', '0')->with('openid', $openid['openid'])->with('title', '十佳师德标兵');
         }
@@ -265,6 +269,9 @@ FROM
             } else {
                 $value->vote = 0;
             }
+            $find=array('<p>', '</p>');
+            $value->introduce = str_replace($find, "", $value->introduce);
+
         }
         if(!isset($morality_voted_peo))  {
             $morality_voted_peo = "NO";
@@ -280,6 +287,10 @@ FROM
         $re = $this->weixinLogin($openid['openid']);
         $morality = Candidate::where('type', '2')->where('status', '1')->get();
         if(!$re) {
+            foreach ($morality as $value) {
+                $find=array('<p>', '</p>');
+                $value->introduce = str_replace($find, "", $value->introduce);
+            }
 //            return view('attention')->with('openid', $openid['openid']);;
             return view('mobile')->with('morality', $morality)->with('morality_vote', 'NO')->with('type', 2)->with('bind', '0')->with('openid', $openid['openid'])->with('title', '十佳青年教师');
         }
@@ -297,6 +308,8 @@ FROM
             } else {
                 $value->vote = 0;
             }
+            $find=array('<p>', '</p>');
+            $value->introduce = str_replace($find, "", $value->introduce);
         }
         if(!isset($morality_voted_peo))  {
             $morality_voted_peo = "NO";

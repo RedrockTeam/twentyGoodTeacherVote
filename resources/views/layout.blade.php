@@ -28,9 +28,12 @@
             </div>
             <ul class="nav_list">
                 <li><a href="{{route('index')}}" data-left="60" @yield('index')>首页</a></li>
-                <li><a href="{{route('norm')}}" data-left="164" @yield('norm')>我来提名</a></li>
+                <!-- <li><a href="{{route('norm')}}" data-left="164" @yield('norm')>我来提名</a></li>
                 <li><a href="{{route('vote')}}" data-left="312" @yield('vote')>网络投票</a></li>
-                <li><a href="{{route('rank')}}" data-left="460" @yield('rank')>排行榜</a></li>
+                <li><a href="{{route('rank')}}" data-left="460" @yield('rank')>排行榜</a></li> -->
+                <!-- <li><a href="{{route('norm')}}" data-left="164" @yield('norm')>我来提名</a></li> -->
+                <li><a href="{{route('vote')}}" data-left="164" @yield('vote')>网络投票</a></li>
+                <li><a href="{{route('rank')}}" data-left="312" @yield('rank')>排行榜</a></li>
                 <div class="nav_bar"></div>
             </ul>
 

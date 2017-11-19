@@ -20,13 +20,15 @@
         </ul>
         <div id="rule" class="vote_container" style="height:450px">
             <h3 class="vote_rule_title">投票规则</h3>
-            <p class="vote_rule_p">1.每个账号账号每天可在网站或“重邮小帮手”微信公众号上分别为十佳师德标兵和十佳青年教师各投一次票，每次投票投给7-10位候选人，该次投票才有效，否则投票无效。</p>
-            <p class="vote_rule_p">2.投票时间：2015年11月23日9:00 - 2015年11月29日21:00。</p>
-            <p class="vote_rule_p">3.点击“ <span class="heart">&#xe651;</span> ”可选择候选人进行投票。</p>
+            <p class="vote_rule_p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.网站投票学生需用学号登陆投票，教师需注册后登陆投票；微信端投票需绑定后方可投票；</p>
+            <p class="vote_rule_p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.每个账号每天只能投一次（网站及微信端合计），每次投票投给7-10个不同的候选人，该次投票才有效，否则投票无效；</p>
+            <p class="vote_rule_p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.此次活动旨在了解“双十佳”候选人在师生中的认可度与支持度，为保证测评效果真实性，严禁通过商业手段或其他不正当途径进行拉票、投票等行为，一经发现并认定，将取消其评选资格。监督举报电话62460133，62461685；</p>
+            <p class="vote_rule_p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.投票时间：2017年11月20日9时0分0秒-2017年11月24日21时0分0秒；</p>
+            <p class="vote_rule_p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.点击“ <span class="heart">&#xe651;</span> ”可选择候选人进行投票。</p>
         </div>
         <div id="nor" class="vote_container vote_container_hide">
             <!--voted已投票-->
-            <h3 class="vote_h">重庆邮电大学第二届“十佳师德标兵”候选人</h3>
+            <h3 class="vote_h">重庆邮电大学第三届“十佳师德标兵”候选人</h3>
             <p class="vote_p">（按姓氏笔画排序）</p>
             <form id="vote_form_nor" class="vote_form" action="#" method="GET" data-voted="{{$morality_vote}}">
                 <ul class="vote_peo_list">
@@ -54,7 +56,7 @@
 
         </div>
         <div id="yth" class="vote_container vote_container_hide">
-        <h3 class="vote_h">重庆邮电大学第二届“十佳青年教师”候选人</h3>
+        <h3 class="vote_h">重庆邮电大学第三届“十佳青年教师”候选人</h3>
             <p class="vote_p">（按姓氏笔画排序）</p>
             <form id="vote_form_yth" class="vote_form" action="#" method="GET" data-voted="{{$youngth_vote}}">
                 <ul class="vote_peo_list">

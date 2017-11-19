@@ -31,8 +31,8 @@ class VoteController extends Controller
             return ['status' => 403, 'info' => '你今天已经在网站投过票了'];
         }
         $time = time();
-        if($time < 1448240400 || $time > 1448802000) {
-            return ['status' => 403, 'info' => '现在不是投票时间'];
+        if($time < 1511139600 || $time > 1511528400) {
+	     return ['status' => 403, 'info' => '现在不是投票时间'];
         }
         if(count($data['data']) < 7 || count($data['data']) > 10) {
             return ['status' => 403, 'info' => '候选人必须7-10人'];
@@ -71,8 +71,8 @@ class VoteController extends Controller
             return ['status' => 403, 'info' => '你今天已经在小帮手投过票了'];
         }
         $time = time();
-        if($time < 1448240400 || $time > 1448802000) {
-            return ['status' => 403, 'info' => '现在不是投票时间'];
+        if($time < 1511139600 || $time > 1511528400) {
+       	    return ['status' => 403, 'info' => '现在不是投票时间'];
         }
         if(count($data['data']) < 7 || count($data['data']) > 10) {
             return ['status' => 403, 'info' => '候选人必须7-10人'];
